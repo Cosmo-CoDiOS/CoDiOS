@@ -1,0 +1,13 @@
+[package]
+name = "codi-rs"
+version = "0.1.0"
+authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "codi_sys"
+path = "src/lib.rs"
+
+[dependencies]
