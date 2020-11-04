@@ -5,7 +5,10 @@ Design notes for CoDi-rs (Cosmo Communicator External Display)
 
 ### Microcontroller
 
-_NOTE: Waiting for Davide to get microcontroller details._
+The chip used for the cover display is: STM32L4R9AII6.
+
+This chip runs at 120Mhz clock speed, has 2Mbyte flash, and 640Kbyte
+RAM. It also has a FPU.
 
 ### OS
 
