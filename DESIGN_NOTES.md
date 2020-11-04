@@ -74,10 +74,10 @@ Firmware delivery is currently done over HTTP. The metadata format for
 the CoDi Assistant app to ascertain when a new version is out, along
 with hashes, is insecure. The metadata can be easily intercepted and
 redirected to malicious firmware. Same with the firmware images
-themselves. This must be addressed, as it would be possible for a MiTM
+themselves. This must be addressed, as it would be possible for a MITM
 attack to be launched.
 
 The metadata is also presented in a rather weird way. I would suggest
 a JSON dictionary instead, and to define the format in a formal
 specification. I note that the PC Wiki is over HTTP, and propose that
-it should be HTTPS, again, to prevent MiTM interceptions.
+it should be HTTPS, again, to prevent MITM interceptions.
