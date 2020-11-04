@@ -51,7 +51,7 @@ efficiency.
 
 - Serial baud rate to be increased?
 
-    Currently, my suspicion about phone OS<-> CoDi communication is
+    ~~Currently, my suspicion about phone OS<-> CoDi communication is
     that the baud rate is limited. My presumption is that this is to
     ensure integrity. I would like to be certain that it _is_ the baud
     rate. Given the slowness of uploading new firmware, and
@@ -62,9 +62,10 @@ efficiency.
     to ensure that communication is intact. I would personally only
     apply this to firmware updates, along with negotiating a slightly
     faster than current baud rate, to enhance speed and user
-    satisfaction, whilst also maintaining integrity.
+    satisfaction, whilst also maintaining integrity.~~
 
-    _NOTE: Waiting for Davide to get UART baud rate details._
+    Further information acquired states the current UART speed is
+    1Mbit (set to 115200), and cannot be increased.
 
 
 ## Firmware delivery
