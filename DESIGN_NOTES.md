@@ -56,9 +56,9 @@ efficiency.
     ensure integrity. I would like to be certain that it _is_ the baud
     rate. Given the slowness of uploading new firmware, and
     camera/video lag, that would tie in. Whenever this is the case,
-    remains to be seen.
+    remains to be seen.~~
 
-    To ensure data integrity, my suggestion is to use simple checksums
+    ~~To ensure data integrity, my suggestion is to use simple checksums
     to ensure that communication is intact. I would personally only
     apply this to firmware updates, along with negotiating a slightly
     faster than current baud rate, to enhance speed and user
