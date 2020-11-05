@@ -27,8 +27,11 @@ jobs:
           command: build
           args: --target thumbv7em-none-eabihf --all --release
 
+      - name: Install cargo-binutils, for stripping the executable
+        run: cargo install cargo-binutils && rustup component add llvm-tools-preview
+
       - name: Strip the CoDiR image (this is not guarranted to flash, look into this!)
-        run: strip target/thumbv7em-none-eabihf/release/codir
+        run: cargo-strip --release -- --strip-all
 
       - name: Create release for CoDiR
         uses: softprops/action-gh-release@v1
