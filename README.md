@@ -1,4 +1,4 @@
-CoDi-rs
+CoDiR
 =======
 
 An experimental new firmware (RTOS) for the Cosmo Communicator's cover
