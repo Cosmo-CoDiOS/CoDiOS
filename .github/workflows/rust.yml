@@ -6,8 +6,8 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  stm32_build:
-    name: CoDiR build process for the STM32 external display
+  codir_build:
+    name: CoDiR build for the Cosmo Communicator
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
