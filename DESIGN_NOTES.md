@@ -10,6 +10,10 @@ The chip used for the cover display is: STM32L4R9AII6.
 This chip runs at 120Mhz clock speed, has 2Mbyte flash, and 640Kbyte
 RAM. It also has a FPU.
 
+We must optimise as _much as possible_. A balance is required between
+size optimisations, and speed. A lot of this is dependent on the code
+itself.
+
 ### OS
 
 Ideally I'd like to do a microkernel RTOS. There's a slight
