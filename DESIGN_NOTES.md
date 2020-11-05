@@ -3,6 +3,12 @@ Design notes for CoDi-rs (Cosmo Communicator External Display)
 
 ## Implementation notes
 
+### Important firmware notes
+
+The firmware is _not_ a drop-in replacement. The existing Android
+OS/other OSes etc will need modification to work with the new features
+of CoDi-rs
+
 ### Microcontroller
 
 The chip used for the cover display is: STM32L4R9AII6.
@@ -52,6 +58,10 @@ efficiency.
 
     This would need to be created for the various OSes available for
     the Cosmo, including the Android OS.
+
+    NOTE: The Android firmware/other OSes would have to use the new
+    API provided by the new CoDi firmware. The existing hooks would
+    not work with the new firmware.
 
 - Serial baud rate to be increased?
 
