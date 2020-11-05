@@ -21,7 +21,7 @@ jobs:
           override: true
 
       - name: Build CoDiR release
-        uses: action-rs/cargo@v1
+        uses: actions-rs/cargo@v1
         with:
           use-cross: true
           command: build
