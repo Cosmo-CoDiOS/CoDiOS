@@ -20,7 +20,7 @@ jobs:
           target: thumbv7em-none-eabihf
           override: true
 
-      - name: Build CoDiR release
+      - name: Build CoDiR
         uses: actions-rs/cargo@v1
         with:
           use-cross: true
