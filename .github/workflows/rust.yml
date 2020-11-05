@@ -34,8 +34,6 @@ jobs:
         uses: softprops@action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files:
-            |
-              target/thumbv7em-none-eabihf/release/codir
+          files: target/thumbv7em-none-eabihf/release/codir
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
