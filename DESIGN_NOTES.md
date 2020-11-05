@@ -1,4 +1,4 @@
-Design notes for CoDi-rs (Cosmo Communicator External Display)
+Design notes for CoDiR
 ==============================================================
 
 ## Implementation notes
@@ -7,7 +7,7 @@ Design notes for CoDi-rs (Cosmo Communicator External Display)
 
 The firmware is _not_ a drop-in replacement. The existing Android
 OS/other OSes etc will need modification to work with the new features
-of CoDi-rs
+of CoDiR
 
 ### Microcontroller
 
