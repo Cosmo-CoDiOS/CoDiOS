@@ -1,0 +1,41 @@
+name: Rust
+
+on: [push]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  stm32_build:
+    name: CoDiR build process for the STM32 external display
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup cross-compiliation toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          target: thumbv7em-none-eabihf
+          override: true
+
+      - name: Build CoDiR release
+        uses: action-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target thumbv7em-none-eabihf --all --release
+
+      - name: Strip the CoDiR image (this is not guarranted to flash, look into this!)
+        run: strip target/thumbv7em-none-eabihf/release/codir
+
+      - name: Create release for CoDiR
+        uses: softprops@action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files:
+            |
+              target/thumbv7em-none-eabihf/release/codir
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
