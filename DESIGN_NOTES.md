@@ -1,4 +1,4 @@
-Design notes for CoDiR
+Design notes for CoDirs
 ==============================================================
 
 ## Implementation notes
@@ -7,7 +7,7 @@ Design notes for CoDiR
 
 The firmware is _not_ a drop-in replacement. The existing Android
 OS/other OSes etc will need modification to work with the new features
-of CoDiR
+of CoDirs
 
 ### Microcontroller
 
@@ -24,13 +24,17 @@ itself.
 
 Ideally I'd like to do a microkernel RTOS. There's a slight
 performance loss with microkernels, due to context switching, and
-considering the clock speed of the STM32 (exact model yet to be
-confirmed by PC), a monolithic RTOS may well be more suitable.
+considering the clock speed of the STM32, a monolithic RTOS may well be more suitable.
 
+However, microkernels offer the best security, and help to keep processes
+isolated. Given the nature of the Cosmo Communicator - a mobile phone - it
+_could_ be argued a microkernel is the ideal design.
 Perhaps simplicity is what I'm after here.
 
 Language for the OS should be Rust, perhaps with some C/Assembly if
-necessary. Rust provides fast performance (although, obviously this
+necessary.
+
+Rust provides fast performance (although, obviously this
 would be dependent on the STM32 chip!), memory/thread safety, and
 efficiency.
 
@@ -38,9 +42,10 @@ efficiency.
 
 - Publish/subscribe model
 
-    Power users can select which notifications they want CoDi to
+    Users can select which notifications they want CoDi to
     display, or select all notifications, and opt-out of the ones they
-    do not want to see.
+    do not want to see. However, sane defaults should be provieded out of the
+    box.
 
 - Third-party API
 
@@ -79,8 +84,10 @@ efficiency.
     satisfaction, whilst also maintaining integrity.~~
 
     Further information acquired states the current UART speed is
-    1Mbit (set to 115200), and cannot be increased.
+    1Mbit (set to 115200), and (apparently) cannot be increased.
 
+    NOTE: Awaiting more details about the chip to ascertain if other data
+    channels exist.
 
 ## Firmware delivery
 
