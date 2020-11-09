@@ -1,0 +1,26 @@
+[package]
+authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
+categories = ["microkernel", "rtos"]
+description = "Firmware for the external display on the Cosmo Communicator"
+edition = "2018"
+keywords = ["microkernel", "rtos", "cosmocommunicator", "planetcomputers"]
+license = "MIT OR Apache-2.0"
+name = "codirs-firmware"
+readme = "/README.md"
+repository = "https://github.com/shymega/CoDirs.git"
+version = "0.1.0"
+
+[[bin]]
+name = "codirs-firmware"
+path = "src/bin/main.rs"
+test = false
+bench = false
+
+[dependencies]
+cortex-m = "0.6.4"
+cortex-m-rt = "0.6.13"
+cortex-m-semihosting = "0.3.5"
+panic-semihosting = "0.5.4"
+
+[dependencies.codirs-kernel]
+path = "../../lib/codirs/kernel"
