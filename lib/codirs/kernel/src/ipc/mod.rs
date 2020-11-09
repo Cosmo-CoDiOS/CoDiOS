@@ -24,5 +24,5 @@ pub enum IPCResult {
     RESULT_ACK,
     /// This is a `REJECT` result, which is when a IPC call to a process was rejected.
     #[allow(non_camel_case_types)]
-    RESULT_REJ
+    RESULT_REJ,
 }
