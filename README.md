@@ -21,8 +21,6 @@ Licensed under either of:
 
 at your option.
 
-See [here](/LICENSE) for the licence used.
-
 ## Contributing
 
 Contributions for this project are welcome, but must meet the (high) standards
