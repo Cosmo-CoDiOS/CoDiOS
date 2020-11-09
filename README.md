@@ -1,8 +1,9 @@
-CoDiR
+CoDirs
 =======
 
 An experimental new firmware (RTOS) for the Cosmo Communicator's cover
 display, in Rust.
+(Pronounced like: Co-dear-is)
 
 Please see [here][design_notes] for the design notes, whilst this
 project is in the early stages of design.
