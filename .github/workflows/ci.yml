@@ -16,7 +16,7 @@ jobs:
       - name: Setup cross-compiliation toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
+          toolchain: nightly-2020-11-08
           target: thumbv7em-none-eabihf
 
       - name: Build CoDirs in release mode, if its a release
