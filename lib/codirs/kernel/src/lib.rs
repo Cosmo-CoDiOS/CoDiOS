@@ -38,5 +38,5 @@ fn oom(_: Layout) -> ! {
 
 pub(crate) mod drivers;
 pub(crate) mod ipc;
-pub(crate) mod rpc;
 pub(crate) mod protocol;
+pub(crate) mod rpc;
