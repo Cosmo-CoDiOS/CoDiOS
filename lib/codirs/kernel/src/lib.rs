@@ -36,7 +36,7 @@ fn oom(_: Layout) -> ! {
     loop {}
 }
 
-pub mod drivers;
-pub mod ipc;
-pub mod rpc;
+pub(crate) mod drivers;
+pub(crate) mod ipc;
+pub(crate) mod rpc;
 pub(crate) mod protocol;
