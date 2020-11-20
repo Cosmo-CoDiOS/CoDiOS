@@ -22,6 +22,7 @@ extern crate panic_semihosting as _;
 
 use cortex_m_rt::entry;
 use kernel::kernel_main;
+
 #[entry]
 fn main() -> ! {
     kernel_main()
