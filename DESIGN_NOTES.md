@@ -86,8 +86,7 @@ efficiency.
     Further information acquired states the current UART speed is
     1Mbit (set to 115200), and (apparently) cannot be increased.
 
-    NOTE: Awaiting more details about the chip to ascertain if other data
-    channels exist.
+    No other data channels exist for Mediatek <-> STM32 communications.
 
 ## Firmware delivery
 
