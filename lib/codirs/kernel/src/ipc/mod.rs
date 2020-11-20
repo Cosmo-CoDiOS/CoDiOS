@@ -18,11 +18,10 @@
 
 /// This enum holds various result states passed between different processes in the microkernel
 #[derive(Debug, Copy, Clone)]
+#[allow(non_camel_case_types, dead_code)]
 pub enum IPCResult {
     /// This is a 'ACKNOWLEDGE' result, which is when a IPC call was received and processed by a process.
-    #[allow(non_camel_case_types)]
     RESULT_ACK,
     /// This is a `REJECT` result, which is when a IPC call to a process was rejected.
-    #[allow(non_camel_case_types)]
     RESULT_REJ,
 }
