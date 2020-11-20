@@ -28,7 +28,7 @@ jobs:
           args: --target=thumbv7em-none-eabihf --locked --all --release
 
       - name: Build CoDirs in debug mode
-        uses: action-rs/cargo@v1
+        uses: actions-rs/cargo@v1
         with:
           use-cross: true
           command: build
