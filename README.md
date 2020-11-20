@@ -10,7 +10,7 @@ This project is NOT associated or endorsed by Planet Computers.
 (Pronounced like: Co-dear-is)
 
 An experimental, new firmware for the Cosmo Commuicator's external display,
-written in Rust. It is **not** a drop-in replacement.
+written in Rust.
 
 The firmware aims to be a microkernel RTOS (Real-time Operating System), as to
 efficiently run on limited processing power.
