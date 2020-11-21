@@ -4,7 +4,6 @@ on: [push, pull_request]
 
 env:
   CARGO_TERM_COLOR: always
-  DEP_LV_CONFIG_PATH: $GITHUB_WORKSPACE
 
 jobs:
   build:
@@ -19,9 +18,12 @@ jobs:
         with:
           toolchain: nightly-2020-11-08
           target: thumbv7em-none-eabihf
+          override: true
 
       - name: Build CoDirs in release mode, if its a release
         uses: actions-rs/cargo@v1
+        env:
+          DEP_LV_CONFIG_PATH: /project/
         if: startsWith(github.ref, 'refs/tags/')
         with:
           use-cross: true
@@ -30,6 +32,8 @@ jobs:
 
       - name: Build CoDirs in debug mode
         uses: actions-rs/cargo@v1
+        env:
+          DEP_LV_CONFIG_PATH: /project/
         with:
           use-cross: true
           command: build
