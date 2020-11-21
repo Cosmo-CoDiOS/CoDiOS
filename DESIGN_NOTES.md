@@ -5,16 +5,22 @@ Design notes for CoDirs
 
 ### Important firmware notes
 
-The firmware is _not_ a drop-in replacement. The existing Android
-OS/other OSes etc will need modification to work with the new features
-of CoDirs
+This firmware is designed to be a drop-in replacement. It should work with the
+existing protocol, and not need any modifications on the Android OS, or other
+OSes. Previous iterations of the design did not aim for a drop-in replacement,
+but this has now been changed.
 
 ### Microcontroller
 
 The chip used for the cover display is: STM32L4R9AII6.
 
 This chip runs at 120Mhz clock speed, has 2Mbyte flash, and 640Kbyte
-RAM. It also has a FPU.
+RAM. It has a FPU.
+
+The cover display also has:
+
+- 4MB external RAM
+- 32MB external flash.
 
 We must optimise as _much as possible_. A balance is required between
 size optimisations, and speed. A lot of this is dependent on the code
@@ -22,51 +28,25 @@ itself.
 
 ### OS
 
-Ideally I'd like to do a microkernel RTOS. There's a slight
-performance loss with microkernels, due to context switching, and
-considering the clock speed of the STM32, a monolithic RTOS may well be more suitable.
+Ideally I'd like to do a microkernel RTOS. There's a slight performance loss
+with microkernels, due to context switching, and considering the clock speed of
+the STM32, a monolithic RTOS may well be more suitable.
 
-However, microkernels offer the best security, and help to keep processes
-isolated. Given the nature of the Cosmo Communicator - a mobile phone - it
-_could_ be argued a microkernel is the ideal design.
-Perhaps simplicity is what I'm after here.
+However, microkernels offer suitable performance, and good security. It may also
+be that using a microkernel is more power-efficient as well.
 
-Language for the OS should be Rust, perhaps with some C/Assembly if
-necessary.
+Language for the RTOS should be Rust. C or Assembly may be required for certain
+low-level components.
 
-Rust provides fast performance (although, obviously this
-would be dependent on the STM32 chip!), memory/thread safety, and
-efficiency.
+Taking the above into consideration, a microkernel would suit this firmware
+well.
+
+In terms of mapping the code into the memory regions that the cover display
+uses, Planet have very kindly provided me (@shymega) with details of the regions.
+
+I am not sure if I can share this on the repo yet, but I will query that.
 
 ## Ideas
-
-- Publish/subscribe model
-
-    Users can select which notifications they want CoDi to
-    display, or select all notifications, and opt-out of the ones they
-    do not want to see. However, sane defaults should be provieded out of the
-    box.
-
-- Third-party API
-
-    The Cover Display OS should provide a third-party API interface,
-    for app developers and power users to directly interface with CoDi
-    itself.
-
-    We would need to settle on an efficient format for
-    communication. This would need to be suited for `no_std` usage in
-    the OS, and have a OS library for parsing the format.
-
-    Additionally, we should create a library _for_ the API calls,
-    providing a safe abstraction layer over the OS's third-party API
-    interface.
-
-    This would need to be created for the various OSes available for
-    the Cosmo, including the Android OS.
-
-    NOTE: The Android firmware/other OSes would have to use the new
-    API provided by the new CoDi firmware. The existing hooks would
-    not work with the new firmware.
 
 - Serial baud rate to be increased?
 
