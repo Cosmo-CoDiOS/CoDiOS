@@ -62,13 +62,3 @@ jobs:
         with:
           name: codirs-firmware-debug
           path: ./target/thumbv7em-none-eabihf/debug/codirs-firmware
-
-      - name: Cache cargo
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            target
-            ~/.cargo/bin
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
