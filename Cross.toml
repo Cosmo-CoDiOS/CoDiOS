@@ -2,4 +2,4 @@
 passthrough = ["DEP_LV_CONFIG_PATH"]
 
 [target.thumbv7em-none-eabihf]
-image = "shymega/rust-cross-custom:thumb7em-none-eabihf-0.2.1"
+image = "shymega/rust-cross-custom:thumbv7em-none-eabihf"
