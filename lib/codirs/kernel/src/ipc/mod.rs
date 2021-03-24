@@ -24,4 +24,6 @@ pub enum IPCResult {
     RESULT_ACK,
     /// This is a `REJECT` result, which is when a IPC call to a process was rejected.
     RESULT_REJ,
+    /// This is a 'ILLEGAL' result, which is when a IPC call to a process was determined to be unsupported/illegal.
+    RESULT_IGL,
 }
