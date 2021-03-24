@@ -16,4 +16,4 @@ name = "codirs_graphics"
 path = "src/lib.rs"
 
 [dependencies]
-lvgl = "0.4.0"
+lvgl = "0.5.2"
