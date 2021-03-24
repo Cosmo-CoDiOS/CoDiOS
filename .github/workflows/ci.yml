@@ -28,7 +28,7 @@ jobs:
         with:
           use-cross: true
           command: build
-          args: --target=thumbv7em-none-eabihf --locked --all --release
+          args: --target=thumbv7em-none-eabihf --all --release
 
       - name: Build CoDirs in debug mode
         uses: actions-rs/cargo@v1
@@ -37,7 +37,7 @@ jobs:
         with:
           use-cross: true
           command: build
-          args: --target=thumbv7em-none-eabihf --locked --all
+          args: --target=thumbv7em-none-eabihf --all
 
       - name: 'Install (Cargo) binutils, if its release.'
         if: startsWith(github.ref, 'refs/tags/')
