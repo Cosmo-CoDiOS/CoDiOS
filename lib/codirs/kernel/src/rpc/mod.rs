@@ -1,5 +1,4 @@
-//! This crate handles RPC between the `CoDirs` kernel and the OS running on the Cosmo
-//! Communicator.
+//! This crate handles RPC between the `CoDirs` kernel and the OS running on the Cosmo Communicator.
 #![deny(
     missing_copy_implementations,
     missing_debug_implementations,
