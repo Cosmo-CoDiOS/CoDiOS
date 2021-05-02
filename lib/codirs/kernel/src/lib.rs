@@ -31,6 +31,9 @@ pub fn kernel_main() -> ! {
     loop {}
 }
 
+/// Out of Memory (OOM) handler.
+/// Currently this just hangs.
+/// We should probably cleanup after this, display a recovery message, and then reboot.
 #[alloc_error_handler]
 fn oom(_: Layout) -> ! {
     loop {}
