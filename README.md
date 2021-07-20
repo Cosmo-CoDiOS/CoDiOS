@@ -31,7 +31,7 @@ at your option.
 
 Contributions for this project are welcome, but must meet the (high) standards
 set for this project. We will aim to assist those who contribute, to meet these
-standards. (NOTE: These standards are being written, stay tuned!).
+standards. (NOTE: These standards are being [written][contribute], stay tuned!).
 
 Unless you explicitly state otherwise, any contribution intentionally submitted
 for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
@@ -42,6 +42,7 @@ those involved with this project, and expect everyone to follow these
 guidelines, to that end.
 
 [design_notes]: /DESIGN_NOTES.md
+[contribute]: /CONTRIBUTING.md
 [coc]: https://www.rust-lang.org/policies/code-of-conduct
 [apache]: /LICENSE-APACHE
 [mit]: /LICENSE-MIT
