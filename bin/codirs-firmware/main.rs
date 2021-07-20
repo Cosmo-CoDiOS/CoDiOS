@@ -1,6 +1,6 @@
-//! This is the UI crate for the `CoDirs` RTOS.
-//! It displays the UI for the cover display.
+//! The main firmware for the CoDi-rs RTOS
 #![no_std]
+#![no_main]
 #![deny(
     missing_copy_implementations,
     missing_debug_implementations,
@@ -11,9 +11,19 @@
     trivial_casts,
     trivial_numeric_casts,
     unsafe_code,
-    unstable_features,
     unused_import_braces,
     unused_qualifications,
     unused_extern_crates,
     variant_size_differences
 )]
+
+extern crate codirs_firmware as firmware;
+extern crate panic_semihosting as _;
+
+use cortex_m_rt::entry;
+use firmware::kernel::kernel_main;
+
+#[entry]
+fn main() -> ! {
+    kernel_main()
+}
