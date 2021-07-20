@@ -32,7 +32,6 @@ In terms of the OS for CoDirs, the intention is for a microkernel-based RTOS
 Primarily, the OS will be written in Rust. I anticipate some partial usage of C
 or Assembly.
 
-
 Primarily goals of the OS:
 
 - Speed.
@@ -43,6 +42,22 @@ Primarily goals of the OS:
 
 I have also attained from Planet, details of the memory regions used on the CoDi
 chip and external memory.
+
+#### Recovery
+
+Currently, it would appear the stock CoDi, when it encounters a non-recoverable error just simply restarts. There is also *no way* to debug CoDi without soldering a data line directly onto the chip - or so I've been told.
+
+Therefore, it is my aim to incoporate the following enhancements to CoDirs:
+
+- Logging.
+    Logging should be initialised as soon as possible, and stored in a buffer.
+    The buffer should be 'flushed' to the OS on the MTK chip as soon as a log comes in.
+- Recovery
+    - The recovery process should include, in execution order:
+        - Shutting down OS to minimal state, preparing for memory dump and recovery message.
+        - Dump logs to MTK chip.
+        - Dump memory to MTK
+        - Display recovery icon, and await restart.
 
 ## Firmware delivery
 
