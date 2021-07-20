@@ -5,68 +5,44 @@ Design notes for CoDirs
 
 ### Important firmware notes
 
-This firmware is designed to be a drop-in replacement. It should work with the
-existing protocol, and not need any modifications on the Android OS, or other
-OSes. Previous iterations of the design did not aim for a drop-in replacement,
-but this has now been changed.
+- This firmware is designed to be a drop-in replacement. It should work with the
+  existing protocol, and not need any modifications on the Android OS, or other
+  OSes. Previous iterations of the design did not aim for a drop-in replacement,
+  but this has now been changed.
 
 ### Microcontroller
 
 The chip used for the cover display is: STM32L4R9AII6.
+
+The crate - [stm32-rs][]- has support for the aforementioned chip.
 
 This chip runs at 120Mhz clock speed, has 2Mbyte flash, and 640Kbyte
 RAM. It has a FPU.
 
 The cover display also has:
 
-- 4MB external RAM
-- 32MB external flash.
-
-We must optimise as _much as possible_. A balance is required between
-size optimisations, and speed. A lot of this is dependent on the code
-itself.
+- 4MB external RAM (is this used?)
+- 32MB external flash (currently used for CoDi resources)
 
 ### OS
 
-Ideally I'd like to do a microkernel RTOS. There's a slight performance loss
-with microkernels, due to context switching, and considering the clock speed of
-the STM32, a monolithic RTOS may well be more suitable.
+In terms of the OS for CoDirs, the intention is for a microkernel-based RTOS
+(real-time operating system).
 
-However, microkernels offer suitable performance, and good security. It may also
-be that using a microkernel is more power-efficient as well.
+Primarily, the OS will be written in Rust. I anticipate some partial usage of C
+or Assembly.
 
-Language for the RTOS should be Rust. C or Assembly may be required for certain
-low-level components.
 
-Taking the above into consideration, a microkernel would suit this firmware
-well.
+Primarily goals of the OS:
 
-In terms of mapping the code into the memory regions that the cover display
-uses, Planet have very kindly provided me (@shymega) with details of the regions.
+- Speed.
+- Secure.
+- Fault-tolerant.
+- Software-enabled debugging.
+- Small memory footprint.
 
-I am not sure if I can share this on the repo yet, but I will query that.
-
-## Ideas
-
-- Serial baud rate to be increased?
-
-    ~~Currently, my suspicion about phone OS<-> CoDi communication is
-    that the baud rate is limited. My presumption is that this is to
-    ensure integrity. I would like to be certain that it _is_ the baud
-    rate. Given the slowness of uploading new firmware, and
-    camera/video lag, that would tie in. Whenever this is the case,
-    remains to be seen.~~
-
-    ~~To ensure data integrity, my suggestion is to use simple checksums
-    to ensure that communication is intact. I would personally only
-    apply this to firmware updates, along with negotiating a slightly
-    faster than current baud rate, to enhance speed and user
-    satisfaction, whilst also maintaining integrity.~~
-
-    Further information acquired states the current UART speed is
-    1Mbit (set to 115200), and (apparently) cannot be increased.
-
-    No other data channels exist for Mediatek <-> STM32 communications.
+I have also attained from Planet, details of the memory regions used on the CoDi
+chip and external memory.
 
 ## Firmware delivery
 
@@ -81,3 +57,9 @@ The metadata is also presented in a rather weird way. I would suggest
 a JSON dictionary instead, and to define the format in a formal
 specification. I note that the PC Wiki is over HTTP, and propose that
 it should be HTTPS, again, to prevent MITM interceptions.
+
+Of course, if the metadata were changed, it should be on a different URL,
+because older versions of the Assistant/CoDi updater software (see: codi-app)
+would break!
+
+[stm32-rs]: https://github.com/stm32-rs/stm32-rs
