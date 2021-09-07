@@ -23,17 +23,17 @@ path = "bin/codirs-firmware/main.rs"
 lvgl = "0.5.2"
 alloc-cortex-m = "0.4.1"
 cortex-m = "0.7.3"
-cortex-m-rt = "0.6.14"
+cortex-m-rt = "0.6.15"
 cortex-m-semihosting = "0.3.7"
 panic-semihosting = "0.5.6"
 
 [dependencies.serde]
-version = "1.0.126"
+version = "1.0.127"
 default-features = false
 features = ["derive", "alloc"]
 
 [dependencies.serde_json]
-version = "1.0.64"
+version = "1.0.66"
 default-features = false
 features = ["alloc"]
 
