@@ -18,12 +18,7 @@ this project is in its infancy.
 
 ## License
 
-Licensed under either of:
-
-* [Apache License][apache], Version 2.0
-* [MIT license][mit]
-
-at your option.
+Licensed under the [MIT license][MIT]
 
 ## Contributing
 
@@ -42,5 +37,4 @@ guidelines, to that end.
 [design_notes]: /DESIGN_NOTES.md
 [contribute]: /CONTRIBUTING.md
 [coc]: https://www.rust-lang.org/policies/code-of-conduct
-[apache]: /LICENSE-APACHE
-[mit]: /LICENSE-MIT
+[mit]: /LICENSE
