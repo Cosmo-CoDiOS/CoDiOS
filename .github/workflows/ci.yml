@@ -1,4 +1,4 @@
-name: CoDirs builder workflow
+name: CoDiOS builder workflow
 
 on: [push, pull_request]
 
@@ -7,7 +7,7 @@ env:
 
 jobs:
   build:
-    name: CoDirs build job
+    name: CoDiOS build job
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,7 +20,7 @@ jobs:
           target: thumbv7em-none-eabihf
           override: true
 
-      - name: Build CoDirs in release mode, if its a release
+      - name: If this build is a release, build in release mode
         uses: actions-rs/cargo@v1
         env:
           DEP_LV_CONFIG_PATH: /project/
@@ -30,7 +30,7 @@ jobs:
           command: build
           args: --target=thumbv7em-none-eabihf --all --locked --verbose --release
 
-      - name: Build CoDirs in debug mode
+      - name: Build CoDiOS in debug mode
         uses: actions-rs/cargo@v1
         env:
           DEP_LV_CONFIG_PATH: /project/
@@ -39,26 +39,26 @@ jobs:
           command: build
           args: --target=thumbv7em-none-eabihf --all --locked --verbose
 
-      - name: 'Install (Cargo) binutils, if its release.'
+      - name: If this build is a release, install cargo-binutils
         if: startsWith(github.ref, 'refs/tags/')
         run:
           cargo install cargo-binutils && rustup component add
           llvm-tools-preview
 
-      - name: Strip the CoDirs image, if its a release
+      - name: If this build is a release, strip the firmware image
         if: startsWith(github.ref, 'refs/tags/')
         run: cargo strip --release -- --strip-all
 
-      - name: Create release for CoDirs
+      - name: Create release for CoDiOS
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: target/thumbv7em-none-eabihf/release/codirs-firmware
+          files: target/thumbv7em-none-eabihf/release/codios-firmware
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Upload debug build artifact
         uses: actions/upload-artifact@v2
         with:
-          name: codirs-firmware-debug
-          path: ./target/thumbv7em-none-eabihf/debug/codirs-firmware
+          name: codios-firmware-debug
+          path: ./target/thumbv7em-none-eabihf/debug/codios-firmware

@@ -1,4 +1,4 @@
-//! The main firmware for the CoDi-rs RTOS
+//! This is the main firmware image for the CoDiOS firmware.
 #![no_std]
 #![no_main]
 #![deny(
@@ -17,7 +17,7 @@
     variant_size_differences
 )]
 
-extern crate codirs_firmware as firmware;
+extern crate codios_firmware as firmware;
 extern crate panic_semihosting as _;
 
 use cortex_m_rt::entry;
