@@ -2,10 +2,9 @@
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
 description = "Firmware for the Cosmo Communicator cover display"
 edition = "2018"
-keywords = ["embedded", "rtos"]
-categories = ["embedded", "rtos"]
-license = "MIT OR Apache-2.0"
-name = "codirs-firmware"
+keywords = ["embedded", "rtos", "cosmo-communicator"]
+categories = ["embedded", "rtos", "cosmo-communicator"]
+license = "MIT"
 name = "codios-firmware"
 publish = false
 readme = "/README.md"
