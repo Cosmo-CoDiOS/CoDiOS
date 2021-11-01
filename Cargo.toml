@@ -6,18 +6,19 @@ keywords = ["embedded", "rtos"]
 categories = ["embedded", "rtos"]
 license = "MIT OR Apache-2.0"
 name = "codirs-firmware"
+name = "codios-firmware"
 publish = false
 readme = "/README.md"
-repository = "https://github.com/shymega/CoDirs.git"
+repository = "https://github.com/shymega/CoDiOS.git"
 version = "0.1.0"
 
 [lib]
-name = "codirs_firmware"
+name = "codios_firmware"
 path = "src/lib.rs"
 
 [[bin]]
-name = "codirs-firmware"
-path = "bin/codirs-firmware/main.rs"
+name = "codios-firmware"
+path = "bin/codios-firmware/main.rs"
 
 [dependencies]
 lvgl = "0.5.2"
