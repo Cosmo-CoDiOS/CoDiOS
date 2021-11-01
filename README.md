@@ -1,4 +1,4 @@
-CoDirs
+CoDiOS
 =======
 
 ## DISCLAIMER
@@ -6,8 +6,6 @@ CoDirs
 This project is NOT associated or endorsed by Planet Computers.
 
 ## About
-
-(Pronounced like: Co-dear-is)
 
 An experimental, new firmware for the Cosmo Commuicator's external display,
 written in Rust.

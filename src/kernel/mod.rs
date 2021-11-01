@@ -1,5 +1,5 @@
-//! This is the core of `CoDirs`; the microkernel for the RTOS.
-//! It is split out into different crates.
+//! This is the core of `CoDiOS`.
+//! It is split out into different modules.
 
 use alloc_cortex_m::CortexMHeap;
 use core::alloc::Layout;
@@ -7,7 +7,7 @@ use core::alloc::Layout;
 #[global_allocator]
 static ALLOCATOR: CortexMHeap = CortexMHeap::empty();
 
-/// Main kernel entrypoint for `CoDirs`.
+/// Main kernel entrypoint for `CoDiOS`.
 pub fn kernel_main() -> ! {
     loop {}
 }
