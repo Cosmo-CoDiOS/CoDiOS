@@ -45,6 +45,11 @@ features = ["stm32l4x6", "rt"]
 version = "1.3.0"
 features = ["l4x6", "embedded-hal"]
 
+[dependencies.corepack]
+version = "0.4.1"
+default-features = false
+features = ["alloc"]
+
 [profile.dev]
 lto = true
 opt-level = 3
