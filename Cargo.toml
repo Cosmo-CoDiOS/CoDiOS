@@ -1,7 +1,6 @@
 [package]
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
 description = "Firmware for the Cosmo Communicator cover display"
-edition = "2018"
 license = "MIT"
 name = "codios-firmware"
 keywords = ["embedded", "rtos"]
@@ -10,6 +9,7 @@ publish = false
 readme = "/README.md"
 repository = "https://github.com/shymega/CoDiOS.git"
 version = "0.1.0"
+edition = "2018"
 
 [lib]
 name = "codios_firmware"
