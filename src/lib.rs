@@ -16,5 +16,4 @@
     variant_size_differences
 )]
 
-mod graphics;
 pub mod kernel;
