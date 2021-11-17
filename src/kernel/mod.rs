@@ -1,8 +1,9 @@
 //! This is the core of `CoDiOS`.
 //! It is split out into different modules.
 
-use alloc_cortex_m::CortexMHeap;
 use core::alloc::Layout;
+
+use alloc_cortex_m::CortexMHeap;
 
 #[global_allocator]
 static ALLOCATOR: CortexMHeap = CortexMHeap::empty();
@@ -20,10 +21,4 @@ fn oom(_: Layout) -> ! {
     loop {}
 }
 
-mod drivers;
-mod hal;
-mod ipc;
-mod protocol;
-mod rpc;
-
-use protocol::ProtocolCommands;
+mod userspace;
