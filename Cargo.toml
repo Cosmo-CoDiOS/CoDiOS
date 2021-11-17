@@ -32,7 +32,7 @@ default-features = false
 features = ["derive", "alloc"]
 
 [dependencies.serde_json]
-version = "1.0.68"
+version = "1.0.70"
 default-features = false
 features = ["alloc"]
 
