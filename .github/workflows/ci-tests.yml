@@ -1,0 +1,46 @@
+name: CoDiOS CI tests
+'on':
+  - push
+  - pull_request
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  tests:
+    name: Run tests on all Rust channels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+          components: clippy
+          override: true
+          target: thumbv7em-none-eabihf
+          default: true
+      - name: Setup Cargo binary caching/installation action
+        uses: actions-rs/install@v0.1
+        with:
+          crate: cross
+          version: latest
+          use-tool-cache: true
+      - name: Build debug CoDiOS/codictl
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: '--all-features --target=thumbv7em-none-eabihf'
+          use-cross: true
+      - name: Run tests
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: '--all-features --target=thumbv7em-none-eabihf'
+          use-cross: true
+      - name: Run Clippy checks
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: clippy
+          args: '--all-features --target=thumbv7em-none-eabihf'
