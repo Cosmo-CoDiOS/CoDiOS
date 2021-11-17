@@ -121,7 +121,7 @@ dependencies = [
 [[package]]
 name = "codi_os_proto"
 version = "0.1.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#be5965e25c51978a14c7ffe762cedffc0caebccf"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#7067a12a23f8a4acbef86416ee07c41c4e327e61"
 dependencies = [
  "codi_proto_common",
  "prost",
@@ -132,12 +132,12 @@ dependencies = [
 [[package]]
 name = "codi_proto_common"
 version = "0.1.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#be5965e25c51978a14c7ffe762cedffc0caebccf"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#7067a12a23f8a4acbef86416ee07c41c4e327e61"
 
 [[package]]
 name = "codi_stock_proto"
 version = "0.1.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#be5965e25c51978a14c7ffe762cedffc0caebccf"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#7067a12a23f8a4acbef86416ee07c41c4e327e61"
 dependencies = [
  "codi_proto_common",
 ]
