@@ -1,0 +1,40 @@
+name: CoDiOS CI debug builder
+'on':
+  - push
+  - pull_request
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  build-debug:
+    name: Debug builder for Cosmo CoDiOS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Cargo binary caching/installation action
+        uses: actions-rs/install@v0.1
+        with:
+          crate: cross
+          version: latest
+          use-tool-cache: true
+      - name: Setup Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          default: true
+          override: true
+          target: thumbv7em-none-eabihf
+          profile: minimal
+      - name: Build project (thumbv7em-none-eabihf) in debug mode
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: >-
+            --all --locked --verbose  --all-features --target=thumbv7em-none-eabihf
+          use-cross: true
+      - name: Upload [debug] artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: codios-firmware-debug.bin
+          path: |
+            /home/runner/work/CoDiOS/CoDiOS/target/thumbv7em-none-eabihf/debug/codios-firmware
