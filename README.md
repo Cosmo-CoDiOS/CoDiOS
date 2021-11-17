@@ -1,7 +1,7 @@
 CoDiOS
-=======
+======
 
-## DISCLAIMER
+# DISCLAIMER
 
 This project is NOT associated or endorsed by Planet Computers.
 
@@ -10,8 +10,13 @@ This project is NOT associated or endorsed by Planet Computers.
 An experimental, new firmware for the Cosmo Commuicator's external display,
 written in Rust.
 
-The firmware aims to be a microkernel RTOS (Real-time Operating System), as to
-efficiently run on limited processing power.
+The firmware's aims are to be fast, battery/processor efficient, and minimal.
+
+Stock CoDi from Planet Computers has tried to fit too much into the firmware, 
+and therefore adds complexity, and slowness. It also uses a proprietary 
+graphics library, as well as being proprietary itself. CoDiOS will be a true 
+open-source firmware, with ways for the Planet community to contribute and shape 
+the future of CoDiOS.
 
 Please see [here][design_notes] for the design notes, and note that
 this project is in its infancy.
