@@ -20,7 +20,6 @@ name = "codios-firmware"
 path = "bin/codios-firmware/main.rs"
 
 [dependencies]
-lvgl = "0.5.2"
 alloc-cortex-m = "0.4.1"
 cortex-m = "0.7.3"
 cortex-m-rt = "0.7.0"
