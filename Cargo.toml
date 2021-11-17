@@ -46,15 +46,15 @@ features = ["l4x6", "embedded-hal"]
 
 [dependencies.codi_os_proto]
 git = "https://github.com/Cosmo-CoDiOS/codi_protos"
-rev = "5279fc63c8d56fb2c9409d6d6c598fc0ec1b76e8"
+branch = "main"
 
 [dependencies.codi_proto_common]
 git = "https://github.com/Cosmo-CoDiOS/codi_protos"
-rev = "5279fc63c8d56fb2c9409d6d6c598fc0ec1b76e8"
+branch = "main"
 
 [dependencies.codi_stock_proto]
 git = "https://github.com/Cosmo-CoDiOS/codi_protos"
-rev = "5279fc63c8d56fb2c9409d6d6c598fc0ec1b76e8"
+branch = "main"
 
 [profile.dev]
 lto = true
