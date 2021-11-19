@@ -17,3 +17,4 @@
 )]
 
 pub mod kernel;
+pub(crate) mod userspace;

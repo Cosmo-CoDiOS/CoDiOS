@@ -10,6 +10,7 @@ static ALLOCATOR: CortexMHeap = CortexMHeap::empty();
 
 /// Main kernel entrypoint for `CoDiOS`.
 pub fn kernel_main() -> ! {
+    #[allow(clippy::empty_loop)] // temporary clippy avoidance
     loop {}
 }
 
@@ -18,7 +19,9 @@ pub fn kernel_main() -> ! {
 /// We should probably cleanup after this, display a recovery message, and then reboot.
 #[alloc_error_handler]
 fn oom(_: Layout) -> ! {
+    #[allow(clippy::empty_loop)] // temporary clippy avoidance
     loop {}
 }
 
-mod userspace;
+// prepare for future
+// use super::userspace;
