@@ -1,15 +1,15 @@
 [package]
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
-description = "Firmware for the Cosmo Communicator cover display"
+description = "Firmware/emulator for the Cosmo Communicator cover display"
 license = "MIT"
-name = "codios-firmware"
-keywords = ["embedded", "rtos"]
-categories = ["embedded", "rtos"]
+name = "codios"
+keywords = ["embedded", "microkernel", "emulator", "firmware"]
+categories = ["embedded", "firmware", "microkernel"]
 publish = false
 readme = "/README.md"
 repository = "https://github.com/shymega/CoDiOS.git"
 version = "0.1.0"
-edition = "2021"
+edition = "2018"
 
 [lib]
 name = "codios_firmware"
@@ -17,43 +17,35 @@ path = "src/lib.rs"
 
 [[bin]]
 name = "codios-firmware"
-path = "bin/codios-firmware/main.rs"
+path = "src/bin/codios-firmware.rs"
+required-features = ["firmware"]
 
-[dependencies]
-alloc-cortex-m = "0.4.1"
-cortex-m = "0.7.3"
-cortex-m-rt = "0.7.0"
-cortex-m-semihosting = "0.3.7"
-panic-semihosting = "0.5.6"
+[[bin]]
+name = "codios-emulator"
+path =  "src/bin/codios-emulator.rs"
+required-features = ["emulator"]
 
-[dependencies.serde]
-version = "1.0.130"
-default-features = false
-features = ["derive", "alloc"]
+[features]
+default = []
+firmware = ["alloc-cortex-m", "cortex-m", "cortex-m-rt", "cortex-m-semihosting", "panic-semihosting", "serde", "stm32l4", "codi_os_proto", "codi_proto_common"]
+emulator = ["codi_os_proto", "codi_proto_common", "embedded-graphics", "embedded-graphics-simulator"]
 
-[dependencies.stm32l4]
-version = "0.14.0"
-features = ["stm32l4x6", "rt"]
+[target.'cfg(target_arch = "arm")'.dependencies]
+alloc-cortex-m = { version = "0.4.1", optional = true }
+cortex-m = { version = "0.7.3", optional = true }
+cortex-m-rt = { version = "0.7.1", optional = true }
+cortex-m-semihosting = { version = "0.3.7", optional = true }
+panic-semihosting = { version = "0.5.6", optional = true }
+serde = { version = "1.0.131", default-features = false, optional = true, features = ["derive", "alloc"] }
+stm32l4 = { version = "0.14.0", features = ["stm32l4x6", "rt"], optional = true }
+codi_os_proto = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
+codi_proto_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", features = ["runs-on-stm32"], optional = true }
 
-[dependencies.stm32-hal2]
-version = "1.3.1"
-features = ["l4x6", "embedded-hal"]
-
-[dependencies.codi_os_proto]
-git = "https://github.com/Cosmo-CoDiOS/codi_protos"
-branch = "main"
-
-[dependencies.codi_proto_common]
-git = "https://github.com/Cosmo-CoDiOS/codi_protos"
-branch = "main"
-
-[dependencies.codi_stock_proto]
-git = "https://github.com/Cosmo-CoDiOS/codi_protos"
-branch = "main"
-
-[dependencies.byteorder]
-version = "1.4.3"
-default-features = false
+[target.'cfg(any(target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
+codi_os_proto = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
+codi_proto_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
+embedded-graphics = { version = "0.7.1", optional = true }
+embedded-graphics-simulator = { version = "0.3.0", optional = true }
 
 [profile.dev]
 lto = true
