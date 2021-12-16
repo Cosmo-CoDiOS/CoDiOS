@@ -1,10 +1,8 @@
 //! This is the main firmware image for the CoDiOS firmware.
-#![no_std]
-#![no_main]
 #![deny(
     missing_copy_implementations,
     missing_debug_implementations,
-    missing_docs,
+//    missing_docs,
     clippy::all,
     clippy::pedantic,
     clippy::cargo,
@@ -18,12 +16,8 @@
 )]
 
 extern crate codios_firmware as firmware;
-extern crate panic_semihosting as _;
 
-use cortex_m_rt::entry;
-use firmware::kernel::kernel_main;
-
-#[entry]
-fn main() -> ! {
-    kernel_main()
+fn main() {
+    println!("Emulator starting...");
+    firmware::emulator::emulator_main().unwrap();
 }

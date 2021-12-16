@@ -1,7 +1,0 @@
-[build]
-target = "thumbv7em-none-eabihf"
-
-[unstable]
-build-std = ["core", "compiler_builtins", "alloc"]
-build-std-features = ["compiler-builtins-mem"]
-features = ["build_dep"]
