@@ -10,7 +10,7 @@ This project is NOT associated or endorsed by Planet Computers.
 An experimental, new firmware for the Cosmo Commuicator's external display,
 written in Rust.
 
-The firmware's aims are to be fast, battery/processor efficient, and minimal.
+The firmware's aims are to be fast, battery/processor efficient, and minimal (in terms of UI/UX features).
 
 Stock CoDi from Planet Computers has tried to fit too much into the firmware, 
 and therefore adds complexity, and slowness. It also uses a proprietary 
