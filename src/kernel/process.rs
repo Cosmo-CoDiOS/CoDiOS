@@ -1,12 +1,13 @@
 enum ProcessType {
     Init,
     Userspace(UserspaceProcessType),
-    Kernel(KernelProcessType)
+    Kernel(KernelProcessType),
+    Undefined
 }
 
 enum KernelProcessType {
-    IPCHandler,
-    MMU
+    IPC,
+    MMU,
 }
 
 enum UserspaceProcessType {
@@ -19,22 +20,41 @@ type ProcessID = i8;
 
 #[derive(Debug, Copy, Clone, PartialEq)]
 pub struct Process {
-    p_id: ProcessID,
+    id: ProcessID,
     active: bool,
     zombie: bool,
+    proc_type: ProcessType,
 }
 
 impl Default for Process {
     fn default() -> Process {
         Process {
-            p_id: 0,
+            proc_id: 0,
             active: false,
             zombie: false,
+            proc_type: ProcessType::Undefined,
         }
     }
 }
 
 impl Process {
+    fn new(ProcessType proc_type) -> Process {
+        Process {
+            proc_id: 1 + 1,
+            active: true,
+            zombie: false,
+            proc_type: proc_type,
+        }
+    }
+
+    fn get_process_id(&self) -> ProcessID {
+        self.id
+    }
+
+    fn get_process_type(&self) -> ProcessType {
+        self.proc_type
+    }
+
     fn is_active(&self) -> bool {
         self.active
     }
