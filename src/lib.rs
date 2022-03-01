@@ -9,6 +9,7 @@
     feature(alloc_error_handler)
 )]
 #![deny(
+    warnings,
     missing_copy_implementations,
     missing_debug_implementations,
     //missing_docs,
