@@ -31,12 +31,12 @@ firmware = ["alloc-cortex-m", "cortex-m", "cortex-m-rt", "cortex-m-semihosting",
 emulator = ["codi_os_proto", "codi_proto_common", "embedded-graphics", "embedded-graphics-simulator"]
 
 [target.'cfg(target_arch = "arm")'.dependencies]
-alloc-cortex-m = { version = "0.4.1", optional = true }
-cortex-m = { version = "0.7.3", optional = true }
+alloc-cortex-m = { version = "0.4.2", optional = true }
+cortex-m = { version = "0.7.4", optional = true }
 cortex-m-rt = { version = "0.7.1", optional = true }
 cortex-m-semihosting = { version = "0.3.7", optional = true }
 panic-semihosting = { version = "0.5.6", optional = true }
-serde = { version = "1.0.132", default-features = false, optional = true, features = ["derive", "alloc"] }
+serde = { version = "1.0.136", default-features = false, optional = true, features = ["derive", "alloc"] }
 stm32l4 = { version = "0.14.0", features = ["stm32l4x6", "rt"], optional = true }
 codi_os_proto = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
 codi_proto_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", features = ["runs-on-stm32"], optional = true }
