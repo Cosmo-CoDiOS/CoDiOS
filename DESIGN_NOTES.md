@@ -1,9 +1,9 @@
 Design notes for CoDiOS
 =======================
 
-## Implementation notes
+# Implementation notes
 
-### Important firmware notes
+## Important firmware notes
 
 *This firmware's design has been changed!*
 
@@ -11,19 +11,16 @@ Given stock CoDi's shortcomings, and the new approach CoDiOS will use,
 drop-in compatability with the stock Android OS on the Cosmo
 Communicator will no longer available.
 
-CoDiOS will be using MsgPack bidirectionally with the MTK processor
-and ST32 chip.
+CoDiOS will be using Protocol Buffers bidirectionally with the Cosmo.
+
+A custom set of crates is in progress to implement the codebase for this protocol, and UART handlers.
+
+`codid`, the companion project to CoDiOS will be responsible for handling CoDiOS communications.
+It will also be compatiable with stock CoDi.
 
 All communication will still be performed over serial.
 
-The bootloader of the CoDi processor will be modified to accept both stock CoDi
-firmware (traditional flashing), and CoDiOS. A special header will be sent
-before the updates, which advises the bootloader on the type of firmware being
-sent over serial. CRC checks will be stringent, and successful flashing will be
-verified by the bootloader once its complete, and sent back to the flashing
-tool.
-
-### Microcontroller
+## Microcontroller
 
 The chip used for the cover display is a STM32 microprocessor, specifically, a
 STM32L4R9AII6.
@@ -44,8 +41,7 @@ possible. Instead, communications are done over UART.
 
 ### OS
 
-In terms of the design for CoDiOS, the intention is for a minimal, fast, and
-efficient RTOS (real-time operating system).
+The design of CoDiOS is a real-time, minimal, and efficient microkernel.
 
 Primarily, the OS will be written in Rust. I anticipate some partial usage of C
 or Assembly. which must remain safe, efficient, and secure.
@@ -55,7 +51,6 @@ Primary goals of the OS:
 - Speed.
 - Secure.
 - Fault-tolerant.
-- Software-enabled debugging.
 - Small memory footprint.
 
 I have also attained from Planet, details of the memory regions used on the CoDi
