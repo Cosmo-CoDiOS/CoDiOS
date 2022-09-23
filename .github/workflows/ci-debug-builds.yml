@@ -33,7 +33,7 @@ jobs:
             --all --locked --verbose  --all-features --target=thumbv7em-none-eabihf
           use-cross: true
       - name: Upload [debug] artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: codios-firmware-debug.bin
           path: |
