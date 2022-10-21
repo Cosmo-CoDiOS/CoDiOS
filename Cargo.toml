@@ -27,23 +27,23 @@ required-features = ["emulator"]
 
 [features]
 default = []
-firmware = ["alloc-cortex-m", "cortex-m", "cortex-m-rt", "cortex-m-semihosting", "panic-semihosting", "serde", "stm32l4xx-hal", "codi_os_proto", "codi_proto_common"]
-emulator = ["codi_os_proto", "codi_proto_common", "embedded-graphics", "embedded-graphics-simulator"]
+firmware = ["alloc-cortex-m", "cortex-m", "cortex-m-rt", "cortex-m-semihosting", "panic-semihosting", "serde", "stm32l4xx-hal", "codi_os_protocol", "codi_protocol_common"]
+emulator = ["codi_os_protocol", "codi_protocol_common", "embedded-graphics", "embedded-graphics-simulator"]
 
 [target.'cfg(target_arch = "arm")'.dependencies]
-alloc-cortex-m = { version = "0.4.3", optional = true }
+alloc-cortex-m = { version = "0.4.2", optional = true }
 cortex-m = { version = "0.7.6", optional = true }
-cortex-m-rt = { version = "0.7.2", optional = true }
+cortex-m-rt = { version = "0.7.1", optional = true }
 cortex-m-semihosting = { version = "0.5.0", optional = true }
 panic-semihosting = { version = "0.6.0", optional = true }
-serde = { version = "1.0.147", default-features = false, optional = true, features = ["derive", "alloc"] }
-codi_os_proto = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
-codi_proto_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", features = ["runs-on-stm32"], optional = true, default-features = false }
+serde = { version = "1.0.145", default-features = false, optional = true, features = ["derive", "alloc"] }
+codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
+codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", features = ["stm32"], optional = true, default-features = false }
 stm32l4xx-hal = { git = "https://github.com/stm32-rs/stm32l4xx-hal", rev = "46006b9e2c2d2ea5ea9a00409505e17d16279e1f", features = ["stm32l4r9"], optional = true }
 
 [target.'cfg(any(target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
-codi_os_proto = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
-codi_proto_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
+codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
+codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
 embedded-graphics = { version = "0.7.1", optional = true }
 embedded-graphics-simulator = { version = "0.4.0", optional = true }
 
