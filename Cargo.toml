@@ -31,7 +31,7 @@ firmware = ["alloc-cortex-m", "cortex-m", "cortex-m-rt", "cortex-m-semihosting",
 emulator = ["codi_os_proto", "codi_proto_common", "embedded-graphics", "embedded-graphics-simulator"]
 
 [target.'cfg(target_arch = "arm")'.dependencies]
-alloc-cortex-m = { version = "0.4.2", optional = true }
+alloc-cortex-m = { version = "0.4.3", optional = true }
 cortex-m = { version = "0.7.6", optional = true }
 cortex-m-rt = { version = "0.7.1", optional = true }
 cortex-m-semihosting = { version = "0.5.0", optional = true }
