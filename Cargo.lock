@@ -114,30 +114,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "cc"
-version = "1.0.76"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "76a284da2e6fe2092f2353e51713435363112dfd60030e22add80be333fb928f"
-
-[[package]]
 name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "cmake"
-version = "0.1.49"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "db34956e100b30725f2eb215f90d4871051239535632f84fea3bc92722c66b7c"
-dependencies = [
- "cc",
-]
-
-[[package]]
 name = "codi_os_protocol"
 version = "0.1.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#71cf78873a18ffdbc8000c14e0d2edd019307057"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#29a4e8071e385897459ce2ff86763a48dfb6ce2a"
 dependencies = [
  "codi_protocol_common 0.1.0 (git+https://github.com/Cosmo-CoDiOS/codi_protocols?branch=main)",
  "core2",
@@ -149,7 +134,7 @@ dependencies = [
 [[package]]
 name = "codi_protocol_common"
 version = "0.1.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protocols?branch=main#71cf78873a18ffdbc8000c14e0d2edd019307057"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protocols?branch=main#29a4e8071e385897459ce2ff86763a48dfb6ce2a"
 dependencies = [
  "core2",
 ]
@@ -157,7 +142,7 @@ dependencies = [
 [[package]]
 name = "codi_protocol_common"
 version = "0.1.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#71cf78873a18ffdbc8000c14e0d2edd019307057"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#29a4e8071e385897459ce2ff86763a48dfb6ce2a"
 dependencies = [
  "core2",
 ]
@@ -680,9 +665,9 @@ dependencies = [
 
 [[package]]
 name = "prost"
-version = "0.10.4"
+version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "71adf41db68aa0daaefc69bb30bcd68ded9b9abaad5d1fbb6304c4fb390e083e"
+checksum = "a0841812012b2d4a6145fae9a6af1534873c32aa67fff26bd09f8fa42c83f95a"
 dependencies = [
  "bytes",
  "prost-derive",
@@ -690,13 +675,11 @@ dependencies = [
 
 [[package]]
 name = "prost-build"
-version = "0.10.4"
+version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ae5a4388762d5815a9fc0dea33c56b021cdc8dde0c55e0c9ca57197254b0cab"
+checksum = "1d8b442418ea0822409d9e7d047cbf1e7e9e1760b172bf9982cf29d517c93511"
 dependencies = [
  "bytes",
- "cfg-if",
- "cmake",
  "heck",
  "itertools",
  "lazy_static",
@@ -712,9 +695,9 @@ dependencies = [
 
 [[package]]
 name = "prost-derive"
-version = "0.10.1"
+version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b670f45da57fb8542ebdbb6105a925fe571b67f9e7ed9f47a06a84e72b4e7cc"
+checksum = "164ae68b6587001ca506d3bf7f1000bfa248d0e1217b618108fba4ec1d0cc306"
 dependencies = [
  "anyhow",
  "itertools",
@@ -725,9 +708,9 @@ dependencies = [
 
 [[package]]
 name = "prost-types"
-version = "0.10.1"
+version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d0a014229361011dc8e69c8a1ec6c2e8d0f2af7c91e3ea3f5b2170298461e68"
+checksum = "747761bc3dc48f9a34553bf65605cf6cb6288ba219f3450b4275dbd81539551a"
 dependencies = [
  "bytes",
  "prost",
