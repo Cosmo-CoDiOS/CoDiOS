@@ -1,6 +1,8 @@
 //! This is the core of `CoDiOS`.
 //! It is split out into different modules.
 
+mod process;
+
 use core::alloc::Layout;
 
 use alloc_cortex_m::CortexMHeap;
@@ -24,4 +26,4 @@ fn oom(_: Layout) -> ! {
 }
 
 // prepare for future
-// use super::userspace;
+use super::userspace;

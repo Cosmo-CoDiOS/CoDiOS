@@ -1,63 +1,86 @@
-enum ProcessType {
+#![allow(dead_code, clippy::upper_case_acronyms)]
+
+#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+enum ProcessKind {
     Init,
-    Userspace(UserspaceProcessType),
-    Kernel(KernelProcessType),
-    Undefined
+    Userspace(UserspaceProcessKind),
+    Kernel(KernelProcessKind),
+    Undefined,
 }
 
-enum KernelProcessType {
+#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+enum KernelProcessKind {
     IPC,
     MMU,
+    Interrupt,
+    Undefined,
 }
 
-enum UserspaceProcessType {
+#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+enum UserspaceProcessKind {
     Driver,
-    Comms,
-    RPC,
+    Uart,
+    Graphics,
+    Rpc,
+    Undefined,
 }
 
-type ProcessID = i8;
+impl Default for ProcessKind {
+    fn default() -> Self {
+        Self::Undefined
+    }
+}
 
-#[derive(Debug, Copy, Clone, PartialEq)]
+impl Default for KernelProcessKind {
+    fn default() -> Self {
+        Self::Undefined
+    }
+}
+
+impl Default for UserspaceProcessKind {
+    fn default() -> Self {
+        Self::Undefined
+    }
+}
+
+pub type Pid = i8;
+
+#[derive(Debug, Clone, Copy)]
 pub struct Process {
-    id: ProcessID,
+    id: Pid,
     active: bool,
     zombie: bool,
-    proc_type: ProcessType,
+    proc_type: ProcessKind,
 }
 
 impl Default for Process {
-    fn default() -> Process {
-        Process {
-            proc_id: 0,
-            active: false,
-            zombie: false,
-            proc_type: ProcessType::Undefined,
-        }
+    fn default() -> Self {
+        Self::new(ProcessKind::Undefined)
     }
 }
 
 impl Process {
-    fn new(ProcessType proc_type) -> Process {
-        Process {
-            proc_id: 1 + 1,
+    fn new(proc_type: ProcessKind) -> Self {
+        Self {
+            id: 1 + 1, // global count dracula
             active: true,
             zombie: false,
-            proc_type: proc_type,
+            proc_type,
         }
     }
 
-    fn get_process_id(&self) -> ProcessID {
+    fn process_id(&self) -> ProcessID {
         self.id
     }
 
-    fn get_process_type(&self) -> ProcessType {
+    fn process_type(&self) -> ProcessKind {
         self.proc_type
     }
 
     fn is_active(&self) -> bool {
         self.active
     }
+
     fn is_zombie(&self) -> bool {
         self.zombie
     }
