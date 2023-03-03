@@ -10,8 +10,8 @@ enum ProcessKind {
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq)]
 enum KernelProcessKind {
-    IPC,
-    MMU,
+    Ipc,
+    Mmu,
     Interrupt,
     Undefined,
 }
