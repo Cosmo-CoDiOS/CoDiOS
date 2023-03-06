@@ -128,7 +128,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "codi_os_protocol"
 version = "0.2.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#d577142dd4ea4e2d51942aaf29fcc1679454e2bf"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#95ff4b4e110525cbd1af96a119c0d52982455e54"
 dependencies = [
  "codi_protocol_common",
  "core2",
@@ -140,7 +140,7 @@ dependencies = [
 [[package]]
 name = "codi_protocol_common"
 version = "0.2.0"
-source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#d577142dd4ea4e2d51942aaf29fcc1679454e2bf"
+source = "git+https://github.com/Cosmo-CoDiOS/codi_protos?branch=main#95ff4b4e110525cbd1af96a119c0d52982455e54"
 dependencies = [
  "core2",
 ]
