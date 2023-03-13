@@ -45,7 +45,7 @@ stm32l4xx-hal = { git = "https://github.com/stm32-rs/stm32l4xx-hal", rev = "4600
 codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
 codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main", optional = true }
 embedded-graphics = { version = "0.7.1", optional = true }
-embedded-graphics-simulator = { version = "0.4.0", optional = true }
+embedded-graphics-simulator = { version = "0.4.1", optional = true }
 
 [profile.release]
 lto = true
