@@ -30,17 +30,17 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: '--all-features --target=thumbv7em-none-eabihf'
+          args: '--features firmware --target=thumbv7em-none-eabihf'
           use-cross: true
       - name: Run tests
         uses: actions-rs/cargo@v1
         with:
           command: test
-          args: '--all-features --target=thumbv7em-none-eabihf'
+          args: '--features firmware --target=thumbv7em-none-eabihf'
           use-cross: true
       - name: Run Clippy checks
         uses: actions-rs/cargo@v1
         with:
           use-cross: true
           command: clippy
-          args: '--all-features --target=thumbv7em-none-eabihf'
+          args: '--features firmware --target=thumbv7em-none-eabihf'

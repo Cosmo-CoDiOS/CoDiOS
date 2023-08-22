@@ -30,7 +30,7 @@ jobs:
         with:
           command: build
           args: >-
-            --all --locked --verbose  --all-features --target=thumbv7em-none-eabihf
+            --all --locked --verbose --features firmware --target=thumbv7em-none-eabihf
           use-cross: true
       - name: Upload [debug] artifacts
         uses: actions/upload-artifact@v3
