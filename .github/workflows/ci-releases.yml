@@ -37,7 +37,7 @@ jobs:
         with:
           command: build
           args: >-
-            --all --release --locked --verbose  --target=thumbv7em-none-eabihf
+            --all --release --locked --verbose --features firmware --target=thumbv7em-none-eabihf
           use-cross: true
       - name: Strip the CoDiOS image if the build is a release
         run: cargo strip --release --bin codios-firmware
