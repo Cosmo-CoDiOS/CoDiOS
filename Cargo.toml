@@ -7,7 +7,7 @@ keywords = ["embedded", "microkernel", "emulator", "firmware"]
 categories = ["embedded", "firmware", "microkernel"]
 publish = false
 readme = "/README.md"
-repository = "https://github.com/shymega/CoDiOS.git"
+repository = "https://github.com/Cosmo-CoDiOS/CoDiOS.git"
 version = "0.1.0"
 edition = "2021"
 
