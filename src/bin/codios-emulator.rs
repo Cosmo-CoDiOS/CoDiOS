@@ -19,7 +19,7 @@
 // Not used yet.
 // extern crate codios_firmware as emulator;
 
-#[cfg(any(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
+#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
 fn main() {
     println!("Emulator starting...");
 }
