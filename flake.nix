@@ -49,11 +49,15 @@
       in
       rec {
         # For `nix build` & `nix run`:
-        defaultPackage = naersk'.buildPackage {
-          src = ./.;
-          nativeBuildInputs = with pkgs; [ pkg-config ];
-          buildInputs = with pkgs; [ systemd.dev protobuf ];
-        };
+        ## COMMENTED OUT - DOES NOT COMPILE FOR ARM ##
+#        defaultPackage = naersk'.buildPackage {
+#          src = ./.;
+#          nativeBuildInputs = with pkgs; [ pkg-config ];
+#          buildInputs = with pkgs; [ systemd.dev protobuf ];
+#          cargoBuildOptions = (opts: opts ++ [ "--all-features" "--all-targets" ]);
+#          release = true;
+#          singleStep = true;
+#        };
 
         # For `nix develop` (optional, can be skipped):
         devShell = pkgs.mkShell {
