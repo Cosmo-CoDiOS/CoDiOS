@@ -1,0 +1,12 @@
+{
+    "name": "VS Code DevContainer for CoDiOS",
+    "image": "mcr.microsoft.com/devcontainers/rust:bullseye",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Zerotaskx.rust-extension-pack"
+            ]
+        }
+    },
+    "postCreateCommand": "rustc --version"
+}
