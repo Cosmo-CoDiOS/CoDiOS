@@ -31,8 +31,8 @@ firmware = []
 emulator = []
 
 [dependencies]
-codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main" }
-codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protos", branch = "main" }
+codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
+codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
 
 embassy-sync = { version = "0.2.0", git = "https://github.com/embassy-rs/embassy", features = ["log"] }
 embassy-executor = { version = "0.2.0", git = "https://github.com/embassy-rs/embassy", features = ["arch-std", "executor-thread", "log", "nightly", "integrated-timers"] }
@@ -46,13 +46,11 @@ async-io = "1.13.0"
 env_logger = "0.10.0"
 futures = { version = "0.3.28" }
 log = "0.4.20"
-nix = "0.26.2"
 clap = { version = "4.3.23", features = ["derive"] }
 rand_core = { version = "0.6.4", features = ["std"] }
-heapless = { version = "0.7.16", default-features = false }
 static_cell = { version = "1.2", features = ["nightly"]}
 
-[target.'cfg(any(target_arch = "arm", target_arch = "none"))'.dependencies]
+[target.'cfg(all(target_arch = "arm", target_os = "none"))'.dependencies]
 embedded-graphics = "0.8.1"
 
 embassy-stm32 = { git = "https://github.com/embassy-rs/embassy", version = "0.1.0", features = ["nightly", "defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "unstable-traits", "chrono"]  }
@@ -61,15 +59,14 @@ embassy-embedded-hal = { git = "https://github.com/embassy-rs/embassy", version 
 defmt = "0.3"
 defmt-rtt = "0.4"
 
-cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
-cortex-m-rt = "0.7.3"
-
-embedded-hal = "0.2.7"
+cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7.0"
+embedded-hal = "0.2.6"
 embedded-hal-1 = { package = "embedded-hal", version = "=1.0.0-rc.1" }
 embedded-hal-async = { version = "=1.0.0-rc.1" }
 
 panic-probe = { version = "0.3", features = ["print-defmt"] }
-heapless = { version = "0.7.16", default-features = false }
+heapless = { version = "0.7.5", default-features = false }
 chrono = { version = "^0.4", default-features = false }
 
 micromath = "2.0.0"
@@ -77,6 +74,7 @@ micromath = "2.0.0"
 [target.'cfg(any(target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
 embedded-graphics = "0.8.1"
 embedded-graphics-simulator = "0.5.0"
+nix = "0.26.2"
 
 [profile.release]
 lto = true
