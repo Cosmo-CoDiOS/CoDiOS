@@ -1,1 +1,1 @@
-//! WIP crate for the CoDiOS emulator.
+//! Module for the `CoDiOS` emulator.
