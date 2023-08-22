@@ -17,14 +17,8 @@
     variant_size_differences
 )]
 
-#[cfg(all(target_arch = "arm", feature = "firmware"))]
-extern crate panic_semihosting as _;
-
-#[cfg(all(target_arch = "arm", feature = "firmware"))]
-extern crate codios_firmware as firmware;
-
-#[cfg_attr(target_arch = "arm", cortex_m_rt::entry)]
+#[cfg_attr(all(target_arch = "arm", feature = "firmware"), cortex_m_rt::entry)]
 #[cfg(all(target_arch = "arm", feature = "firmware"))]
 fn main() -> ! {
-    firmware::kernel::kernel_main();
+    loop {}
 }
