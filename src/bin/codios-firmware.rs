@@ -22,5 +22,6 @@ use {defmt_rtt as _, panic_probe as _};
 #[cfg_attr(all(target_arch = "arm", feature = "firmware"), cortex_m_rt::entry)]
 #[cfg(all(target_arch = "arm", feature = "firmware"))]
 fn main() -> ! {
+    #[allow(clippy::empty_loop)]
     loop {}
 }
