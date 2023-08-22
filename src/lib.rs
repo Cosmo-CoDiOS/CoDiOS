@@ -18,11 +18,6 @@
     variant_size_differences
 )]
 
-#[cfg(all(feature = "emulator", target_arch = "arm"))]
-compile_error!(
-    "Unable to build the emulator for the CoDi chip, this isn't supported!"
-);
-
 #[cfg(not(any(feature = "firmware", feature = "emulator")))]
 compile_error!("No flag specified which tells us to build the emulator or firmware! Unable to continue.");
 
