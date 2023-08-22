@@ -1,2 +1,2 @@
 [target.thumbv7em-none-eabihf]
-image = "ghcr.io/cosmo-codios/codios-build-containers:thumbv7em-none-eabihf"
+image = "ghcr.io/shymega/planet-build-system-containers:latest-cosmo-codios-cargo-thumbv7em-none-eabihf"
