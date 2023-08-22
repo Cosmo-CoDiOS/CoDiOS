@@ -1,0 +1,5 @@
+[target.'cfg(all(target_arch = "arm")']
+runner = "probe-rs run --chip STM32L4R7AIIx"
+
+[env]
+DEFMT_LOG = "trace"

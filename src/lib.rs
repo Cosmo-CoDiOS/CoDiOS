@@ -1,18 +1,13 @@
 //! Base crate.
-#![cfg_attr(any(target_arch = "arm", feature = "firmware"), no_std)]
 #![cfg_attr(
     any(target_arch = "arm", feature = "firmware"),
-    allow(unstable_features)
-)]
-#![cfg_attr(
-    any(target_arch = "arm", feature = "firmware"),
-    feature(alloc_error_handler)
+    feature(alloc_error_handler), allow(unstable_features), no_std
 )]
 #![deny(
     warnings,
     missing_copy_implementations,
     missing_debug_implementations,
-    //missing_docs,
+    missing_docs,
     clippy::all,
     clippy::cargo,
     trivial_casts,
@@ -23,8 +18,7 @@
     variant_size_differences
 )]
 
-#[cfg(feature = "emulator")]
-#[cfg(target_arch = "arm")]
+#[cfg(all(feature = "emulator", target_arch = "arm"))]
 compile_error!(
     "Unable to build the emulator for the CoDi chip, this isn't supported!"
 );
@@ -39,12 +33,5 @@ compile_error!("No flag specified which tells us to build the emulator or firmwa
 )))]
 compile_error!("Unsupported target specified, refusing to build.");
 
-#[cfg(all(target_arch = "arm", feature = "firmware"))]
-pub mod kernel;
-
-#[cfg(all(target_arch = "arm", feature = "firmware"))]
-pub(crate) mod userspace;
-
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64"))]
-#[cfg(feature = "emulator")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64", feature = "emulator"))]
 pub mod emulator;

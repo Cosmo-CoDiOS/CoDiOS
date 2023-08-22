@@ -1,8 +1,9 @@
-//! This is the main firmware image for the CoDiOS firmware.
+//! This is the x86_64/aarch64-native emulator for the `CoDiOS` firmware.
 #![deny(
+    warnings,
     missing_copy_implementations,
     missing_debug_implementations,
-//    missing_docs,
+    missing_docs,
     clippy::all,
     clippy::pedantic,
     clippy::cargo,
@@ -15,9 +16,10 @@
     variant_size_differences
 )]
 
-extern crate codios_firmware as firmware;
+// Not used yet.
+// extern crate codios_firmware as emulator;
 
+#[cfg(any(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
 fn main() {
     println!("Emulator starting...");
-    firmware::emulator::emulator_main().unwrap();
 }

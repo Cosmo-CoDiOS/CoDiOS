@@ -1,10 +1,10 @@
-//! This is the main firmware image for the CoDiOS firmware.
-#![cfg_attr(any(target_arch = "arm"), no_std)]
-#![cfg_attr(any(target_arch = "arm"), no_main)]
+//! This is the main firmware image for the `CoDiOS` firmware.
+#![cfg_attr(target_arch = "arm", no_main, no_std)]
 #![deny(
+    warnings,
     missing_copy_implementations,
     missing_debug_implementations,
-//    missing_docs,
+    missing_docs,
     clippy::all,
     clippy::pedantic,
     clippy::cargo,
@@ -17,18 +17,14 @@
     variant_size_differences
 )]
 
-extern crate codios_firmware as firmware;
-#[cfg(target_arch = "arm")]
+#[cfg(all(target_arch = "arm", feature = "firmware"))]
 extern crate panic_semihosting as _;
 
-#[cfg(target_arch = "arm")]
-use cortex_m_rt::entry;
-#[cfg(target_arch = "arm")]
-use firmware::kernel::kernel_main;
+#[cfg(all(target_arch = "arm", feature = "firmware"))]
+extern crate codios_firmware as firmware;
 
-#[cfg(target_arch = "arm")]
-#[entry]
-#[cfg(target_arch = "arm")]
+#[cfg_attr(target_arch = "arm", cortex_m_rt::entry)]
+#[cfg(all(target_arch = "arm", feature = "firmware"))]
 fn main() -> ! {
-    kernel_main();
+    firmware::kernel::kernel_main();
 }
