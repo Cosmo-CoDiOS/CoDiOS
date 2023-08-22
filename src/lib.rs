@@ -28,5 +28,5 @@ compile_error!("No flag specified which tells us to build the emulator or firmwa
 )))]
 compile_error!("Unsupported target specified, refusing to build.");
 
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64", feature = "emulator"))]
+#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
 pub mod emulator;
