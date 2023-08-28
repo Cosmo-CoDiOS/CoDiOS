@@ -74,7 +74,7 @@ async-io = "1.6.0"
 env_logger = "0.10.0"
 futures = { version = "0.3.17" }
 log = "0.4.14"
-nix = "0.26.2"
+nix = "0.27.0"
 clap = { version = "4.3.23", features = ["derive"] }
 rand_core = { version = "0.6.3", features = ["std"] }
 heapless = { version = "0.7.5", default-features = false }
