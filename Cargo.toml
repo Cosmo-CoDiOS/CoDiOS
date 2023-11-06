@@ -56,7 +56,7 @@ futures = { version = "0.3.29", default-features = false, features = ["async-awa
 heapless = { version = "0.7.5", default-features = false }
 chrono = { version = "^0.4", default-features = false }
 
-micromath = "2.0.0"
+micromath = "2.1.0"
 
 [target.'cfg(any(target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
 embedded-graphics = "0.8.1"
