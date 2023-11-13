@@ -71,7 +71,7 @@ embedded-io-adapters = { version = "0.6.0", features = ["futures-03"] }
 critical-section = { version = "1.1", features = ["std"] }
 
 async-io = "2.1.0"
-env_logger = "0.10.0"
+env_logger = "0.10.1"
 futures = { version = "0.3.17" }
 log = "0.4.14"
 nix = "0.27.1"
