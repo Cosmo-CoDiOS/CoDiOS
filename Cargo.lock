@@ -302,7 +302,7 @@ dependencies = [
  "nix",
  "panic-probe",
  "rand_core",
- "static_cell",
+ "static_cell 2.0.0",
 ]
 
 [[package]]
@@ -549,7 +549,7 @@ dependencies = [
  "embassy-time",
  "futures-util",
  "log",
- "static_cell",
+ "static_cell 1.3.0",
 ]
 
 [[package]]
@@ -1292,6 +1292,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "portable-atomic"
+version = "1.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3bccab0e7fd7cc19f820a1c8c91720af652d0c88dc9664dd72aef2614f04af3b"
+dependencies = [
+ "critical-section",
+]
+
+[[package]]
 name = "proc-macro-error"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1518,11 +1527,20 @@ checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
 
 [[package]]
 name = "static_cell"
-version = "1.2.0"
+version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "49cd323fc21eb534f903ee78d781d622099f9716c5b408ed23bcf39f8f1651c0"
+checksum = "2cd3f559c6c41cde362aed95cd84765907e06057f087b17269b41750ec40a3e7"
 dependencies = [
- "atomic-polyfill 1.0.3",
+ "portable-atomic",
+]
+
+[[package]]
+name = "static_cell"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fa6ba4cf83bf80d3eb25f098ea5e790a0a1fcb5e357442259b231e412c2d3ca0"
+dependencies = [
+ "portable-atomic",
 ]
 
 [[package]]
