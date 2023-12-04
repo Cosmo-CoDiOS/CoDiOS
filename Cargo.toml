@@ -60,7 +60,7 @@ micromath = "2.0.0"
 
 [target.'cfg(any(target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
 embedded-graphics = "0.8.1"
-embedded-graphics-simulator = "0.5.0"
+embedded-graphics-simulator = "0.6.0"
 
 embassy-sync = { version = "0.2.0", git = "https://github.com/embassy-rs/embassy", features = ["log"] }
 embassy-executor = { version = "0.2.0", git = "https://github.com/embassy-rs/embassy", features = ["arch-std", "executor-thread", "log", "nightly", "integrated-timers"] }
