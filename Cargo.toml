@@ -52,7 +52,7 @@ embedded-hal = "0.2.6"
 embedded-hal-1 = { package = "embedded-hal", version = "=1.0.0-rc.1" }
 embedded-hal-async = { version = "=1.0.0-rc.1" }
 panic-probe = { version = "0.3", features = ["print-defmt"] }
-futures = { version = "0.3.29", default-features = false, features = ["async-await"] }
+futures = { version = "0.3.30", default-features = false, features = ["async-await"] }
 heapless = { version = "0.8.0", default-features = false }
 chrono = { version = "^0.4", default-features = false }
 
@@ -72,7 +72,7 @@ critical-section = { version = "1.1", features = ["std"] }
 
 async-io = "2.2.2"
 env_logger = "0.10.1"
-futures = { version = "0.3.17" }
+futures = { version = "0.3.30" }
 log = "0.4.14"
 nix = "0.27.1"
 clap = { version = "4.4.11", features = ["derive"] }
