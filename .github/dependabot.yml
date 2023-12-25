@@ -4,16 +4,20 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      time: "06:00" # UTC
     commit-message:
       prefix: "chore(deps)"
-    open-pull-requests-limit: 10
+    groups:
+      cargo-deps:
+        patterns:
+          - "*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-      time: "06:00" # UTC
     commit-message:
-      prefix: "chore(ci)"
-    open-pull-requests-limit: 10
+      prefix: "chore(ci-deps)"
+    groups:
+      gh-actions-deps:
+        patterns:
+          - "*"
