@@ -48,7 +48,7 @@ defmt-rtt = "0.4"
 
 cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7.0"
-embedded-hal = "0.2.6"
+embedded-hal = "1.0.0-rc"
 embedded-hal-1 = { package = "embedded-hal", version = "=1.0.0-rc.1" }
 embedded-hal-async = { version = "=1.0.0-rc.1" }
 panic-probe = { version = "0.3", features = ["print-defmt"] }
@@ -75,7 +75,7 @@ env_logger = "0.10.1"
 futures = { version = "0.3.30" }
 log = "0.4.14"
 nix = "0.27.1"
-clap = { version = "4.4.13", features = ["derive"] }
+clap = { version = "4.4.16", features = ["derive"] }
 rand_core = { version = "0.6.3", features = ["std"] }
 heapless = { version = "0.8.0", default-features = false }
 static_cell = { version = "2.0", features = ["nightly"]}
