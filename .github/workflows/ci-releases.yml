@@ -47,7 +47,7 @@ jobs:
             mv /home/runner/work/CoDiOS/CoDiOS/target/thumbv7em-none-eabihf/codios-firmware /home/runner/work/CoDiOS/CoDiOS/target/thumbv7em-none-eabihf/codios-firmware.bin
             tar -czvf /home/runner/work/CoDiOS/CoDiOS-firmware-release.tgz /home/runner/work/CoDiOS/CoDiOS/target/thumbv7em-none-eabihf/codios-firmware.bin
       - name: Publish release artifacts
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
             files: /home/runner/work/CoDiOS/CoDiOS-firmware-release.tgz
         env:
