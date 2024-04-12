@@ -31,8 +31,8 @@ firmware = []
 emulator = []
 
 [dependencies]
-# codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
-# codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
+codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
+codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
 
 [target.'cfg(all(target_arch = "arm", target_os = "none"))'.dependencies]
 embedded-graphics = "0.8.1"
