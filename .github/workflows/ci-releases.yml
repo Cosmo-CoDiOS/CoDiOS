@@ -14,7 +14,7 @@ jobs:
       - name: Setup Rust toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly-2023-08-19
+          toolchain: nightly-2024-04-11
           default: true
           components: llvm-tools-preview
           override: true
@@ -39,9 +39,9 @@ jobs:
           args: >-
             --all --release --locked --verbose --features firmware --target=thumbv7em-none-eabihf
           use-cross: true
-      - name: Strip the CoDiOS image if the build is a release
+      - name: Strip the CoDiOS firmware
         run: cargo strip --release --bin codios-firmware
-      - name: Package Release
+      - name: Package firmware
         shell: bash
         run: |
             mv /home/runner/work/CoDiOS/CoDiOS/target/thumbv7em-none-eabihf/codios-firmware /home/runner/work/CoDiOS/CoDiOS/target/thumbv7em-none-eabihf/codios-firmware.bin

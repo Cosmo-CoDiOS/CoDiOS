@@ -5,11 +5,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1689068808,
-        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1692351612,
-        "narHash": "sha256-KTGonidcdaLadRnv9KFgwSMh1ZbXoR/OBmPjeNMhFwU=",
+        "lastModified": 1698420672,
+        "narHash": "sha256-/TdeHMPRjjdJub7p7+w55vyABrsJlt5QkznPYy55vKA=",
         "owner": "nix-community",
         "repo": "naersk",
-        "rev": "78789c30d64dea2396c9da516bbcc8db3a475207",
+        "rev": "aeb58d5e8faead8980a807c840232697982d47b9",
         "type": "github"
       },
       "original": {
@@ -38,10 +38,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1692525914,
-        "narHash": "sha256-MUgZ9/9mE/EbEQA6JPdcQHkjoR5fgvaKhpy6UO67uEc=",
-        "path": "/nix/store/h4qb607sigw3jvcvgm84a0c71989yway-source",
-        "rev": "475d5ae2c4cb87b904545bdb547af05681198fcc",
+        "lastModified": 1712741485,
+        "narHash": "sha256-bCs0+MSTra80oXAsnM6Oq62WsirOIaijQ/BbUY59tR4=",
+        "path": "/nix/store/bwibdavbf6p8lci025h3qmln6laq5x82-source",
+        "rev": "b2cf36f43f9ef2ded5711b30b1f393ac423d8f72",
         "type": "path"
       },
       "original": {
@@ -52,11 +52,11 @@
     "nixpkgs-mozilla": {
       "flake": false,
       "locked": {
-        "lastModified": 1690536331,
-        "narHash": "sha256-aRIf2FB2GTdfF7gl13WyETmiV/J7EhBGkSWXfZvlxcA=",
+        "lastModified": 1704373101,
+        "narHash": "sha256-+gi59LRWRQmwROrmE1E2b3mtocwueCQqZ60CwLG+gbg=",
         "owner": "mozilla",
         "repo": "nixpkgs-mozilla",
-        "rev": "db89c8707edcffefcd8e738459d511543a339ff5",
+        "rev": "9b11a87c0cc54e308fa83aac5b4ee1816d5418a2",
         "type": "github"
       },
       "original": {
@@ -67,10 +67,10 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1692525914,
-        "narHash": "sha256-MUgZ9/9mE/EbEQA6JPdcQHkjoR5fgvaKhpy6UO67uEc=",
-        "path": "/nix/store/h4qb607sigw3jvcvgm84a0c71989yway-source",
-        "rev": "475d5ae2c4cb87b904545bdb547af05681198fcc",
+        "lastModified": 1712741485,
+        "narHash": "sha256-bCs0+MSTra80oXAsnM6Oq62WsirOIaijQ/BbUY59tR4=",
+        "path": "/nix/store/bwibdavbf6p8lci025h3qmln6laq5x82-source",
+        "rev": "b2cf36f43f9ef2ded5711b30b1f393ac423d8f72",
         "type": "path"
       },
       "original": {
