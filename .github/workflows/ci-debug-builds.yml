@@ -20,7 +20,7 @@ jobs:
       - name: Setup Rust toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly-2023-08-19
+          toolchain: nightly-2024-04-11
           default: true
           override: true
           target: thumbv7em-none-eabihf
