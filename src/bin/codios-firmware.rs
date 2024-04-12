@@ -1,5 +1,5 @@
 //! This is the main firmware image for the `CoDiOS` firmware.
-#![cfg_attr(target_arch = "arm", no_main, no_std)]
+#![cfg_attr(all(target_arch = "arm", feature = "firmware", not(feature = "emulator")), no_main, no_std)]
 #![deny(
     warnings,
     missing_copy_implementations,
@@ -17,10 +17,7 @@
     variant_size_differences
 )]
 
-use {defmt_rtt as _, panic_probe as _};
-
-#[cfg_attr(all(target_arch = "arm", feature = "firmware"), cortex_m_rt::entry)]
-#[cfg(all(target_arch = "arm", feature = "firmware"))]
+#[cfg(all(target_arch = "arm", feature = "firmware", not(feature = "emulator")))]
 fn main() -> ! {
     #[allow(clippy::empty_loop)]
     loop {}
