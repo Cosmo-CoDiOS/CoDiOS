@@ -29,17 +29,17 @@
           channel = "nightly";
           sha256 = "sha256-dPMfc+32T+p/DluUaN6qJk1+qAYbsYYMbZMmwzaldzs=";
         }).rust.override {
-            targets = [
-                "x86_64-unknown-linux-musl"
-                "thumbv7em-none-eabihf"
-                "aarch64-unknown-linux-musl"
-            ];
-            extensions = [
-                "rust-src"
-                "rustfmt-preview"
-		"clippy-preview"
-                "llvm-tools-preview"
-            ];
+          targets = [
+            "x86_64-unknown-linux-musl"
+            "thumbv7em-none-eabihf"
+            "aarch64-unknown-linux-musl"
+          ];
+          extensions = [
+            "rust-src"
+            "rustfmt-preview"
+            "clippy-preview"
+            "llvm-tools-preview"
+          ];
         };
 
         naersk' = pkgs.callPackage naersk {
