@@ -16,10 +16,7 @@
     variant_size_differences
 )]
 
-// Not used yet.
-// extern crate codios_firmware as emulator;
-
-#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
+#[cfg(all(not(feature = "firmware"), any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
 fn main() {
     println!("Emulator starting...");
 }
