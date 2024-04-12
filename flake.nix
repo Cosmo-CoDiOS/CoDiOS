@@ -25,9 +25,9 @@
         };
 
         toolchain = (pkgs.rustChannelOf {
-          date = "2023-08-19";
+          date = "2024-04-11";
           channel = "nightly";
-          sha256 = "sha256-SNA+Wwlw49SYWcfMF7S4QrJba7xonK9Z/SIZV8E4M9c=";
+          sha256 = "sha256-dPMfc+32T+p/DluUaN6qJk1+qAYbsYYMbZMmwzaldzs=";
         }).rust.override {
             targets = [
                 "x86_64-unknown-linux-musl"
@@ -37,6 +37,7 @@
             extensions = [
                 "rust-src"
                 "rustfmt-preview"
+		"clippy-preview"
                 "llvm-tools-preview"
             ];
         };
@@ -48,17 +49,6 @@
 
       in
       rec {
-        # For `nix build` & `nix run`:
-        ## COMMENTED OUT - DOES NOT COMPILE FOR ARM ##
-#        defaultPackage = naersk'.buildPackage {
-#          src = ./.;
-#          nativeBuildInputs = with pkgs; [ pkg-config ];
-#          buildInputs = with pkgs; [ systemd.dev protobuf ];
-#          cargoBuildOptions = (opts: opts ++ [ "--all-features" "--all-targets" ]);
-#          release = true;
-#          singleStep = true;
-#        };
-
         # For `nix develop` (optional, can be skipped):
         devShell = pkgs.mkShell {
           nativeBuildInputs = [ toolchain ] ++ (with pkgs; [ pkg-config ]);

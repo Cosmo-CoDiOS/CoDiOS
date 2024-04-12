@@ -14,7 +14,7 @@ jobs:
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly-2023-08-19
+          toolchain: nightly-2024-04-11
           profile: minimal
           components: clippy
           override: true
@@ -26,7 +26,7 @@ jobs:
           crate: cross
           version: latest
           use-tool-cache: true
-      - name: Build debug CoDiOS/codictl
+      - name: Build debug CoDiOSl
         uses: actions-rs/cargo@v1
         with:
           command: build
