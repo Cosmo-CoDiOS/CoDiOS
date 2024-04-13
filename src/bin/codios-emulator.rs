@@ -24,6 +24,15 @@ use codios::kmain;
 use log::*;
 
 #[cfg(all(not(feature = "firmware"), any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
-fn main() {
-    println!("Emulator starting...");
+#[cfg_attr(all(not(feature = "firmware"), any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"), embassy_executor::main)]
+async fn main(spawner: Spawner) {
+    env_logger::builder()
+        .filter_level(LevelFilter::Debug)
+        .format_timestamp_millis()
+        .init();
+
+    info!("Starting CoDiOS emulator...");
+    info!("In emulation mode, expect STM32-specific functionality to be missing!");
+
+    spawner.spawn(kmain()).unwrap();
 }
