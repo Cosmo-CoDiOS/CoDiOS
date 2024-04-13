@@ -41,5 +41,15 @@ compile_error!("No flag specified which tells us to build the emulator or firmwa
 )))]
 compile_error!("Unsupported target specified, refusing to build.");
 
-#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
-pub mod emulator;
+#[cfg(all(feature = "firmware", feature = "emulator", any(target_arch = "arm", target_arch = "aarch64", target_arch = "x86_64")))]
+compile_error!("Cannot build emulator and firmware at the same time.");
+
+#[embassy_executor::task]
+pub async fn kmain() {
+    warn!("Looping NOW. (kmain)");
+    loop {
+        info!("PING!");
+        Timer::after_secs(2)
+            .await;
+    }
+}
