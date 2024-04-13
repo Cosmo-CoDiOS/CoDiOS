@@ -27,7 +27,8 @@ use embassy_executor::Spawner;
 use codios::kmain;
 
 #[cfg(all(target_arch = "arm", feature = "firmware", not(feature = "emulator")))]
-fn main() -> ! {
-    #[allow(clippy::empty_loop)]
-    loop {}
+#[cfg_attr(all(target_arch = "arm", feature = "firmware", not(feature = "emulator")), embassy_executor::main)]
+async fn main(spawner: Spawner) {
+    info!("CPU up, starting CoDiOS firmware");
+    spawner.spawn(kmain()).unwrap();
 }
