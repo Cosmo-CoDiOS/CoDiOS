@@ -12,7 +12,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "codios_firmware"
+name = "codios"
 path = "src/lib.rs"
 
 [[bin]]
@@ -31,10 +31,10 @@ firmware = []
 emulator = []
 
 [dependencies]
-codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
-codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
+# codi_os_protocol = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
+# codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
 
-[target.'cfg(all(target_arch = "arm", target_os = "none"))'.dependencies]
+[target.'thumbv7em-none-eabihf'.dependencies]
 embedded-graphics = "0.8.1"
 
 embassy-stm32 = { version = "0.1.0", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono"]  }
@@ -49,7 +49,6 @@ defmt-rtt = "0.4"
 cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7.3"
 embedded-hal = "^1.0"
-embedded-hal-1 = { package = "embedded-hal", version = "^1.0" }
 embedded-hal-async = { version = "^1.0" }
 panic-probe = { version = "0.3", features = ["print-defmt"] }
 futures = { version = "0.3.30", default-features = false, features = ["async-await"] }
