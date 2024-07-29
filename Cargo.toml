@@ -70,11 +70,11 @@ embedded-io-adapters = { version = "0.6.1", features = ["futures-03"] }
 critical-section = { version = "1.1", features = ["std"] }
 
 async-io = "2.3.3"
-env_logger = "0.11.3"
+env_logger = "0.11.5"
 futures = { version = "0.3.30" }
 log = "0.4.22"
 nix = "0.29.0"
-clap = { version = "4.5.9", features = ["derive"] }
+clap = { version = "4.5.11", features = ["derive"] }
 rand_core = { version = "0.6.4", features = ["std"] }
 heapless = { version = "0.8.0", default-features = false }
 static_cell = { version = "2.1", features = ["nightly"]}
