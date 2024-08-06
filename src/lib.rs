@@ -19,18 +19,6 @@
     variant_size_differences
 )]
 
-use embassy_time::Timer;
-
-#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
-pub mod emulator;
-
-#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
-use log::*;
-#[cfg(all(feature = "firmware", target_arch = "arm"))]
-use defmt::*;
-#[cfg(all(feature = "firmware", target_arch = "arm"))]
-use {defmt_rtt as _, panic_probe as _};
-
 #[cfg(not(any(feature = "firmware", feature = "emulator")))]
 compile_error!("No flag specified which tells us to build the emulator or firmware! Unable to continue.");
 
@@ -44,12 +32,23 @@ compile_error!("Unsupported target specified, refusing to build.");
 #[cfg(all(feature = "firmware", feature = "emulator", any(target_arch = "arm", target_arch = "aarch64", target_arch = "x86_64")))]
 compile_error!("Cannot build emulator and firmware at the same time.");
 
+#[cfg(all(not(any(target_arch = "x86_64", target_arch = "aarch64")), feature = "emulator"))]
+compile_error!("Emulator is only supported on x86_64 and aarch64.");
+
+#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
+pub mod emulator;
+
+#[cfg(all(any(target_arch = "x86_64", target_arch = "aarch64"), feature = "emulator"))]
+use log::*;
+#[cfg(all(feature = "firmware", target_arch = "arm"))]
+use defmt::*;
+#[cfg(all(feature = "firmware", target_arch = "arm"))]
+use {defmt_rtt as _, panic_probe as _};
+
 #[embassy_executor::task]
 pub async fn kmain() {
-    warn!("Looping NOW. (kmain)");
+    info!("Looping NOW. (kmain)");
     loop {
-        info!("PING!");
-        Timer::after_secs(2)
-            .await;
+        emulator::emulator_main().await.unwrap();
     }
 }
