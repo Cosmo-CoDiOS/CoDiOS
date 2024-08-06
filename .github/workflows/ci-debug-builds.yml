@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Cargo binary caching/installation action
+      - name: Setup caching
         uses: actions-rs/install@v0.1
         with:
           crate: cross
@@ -32,7 +32,7 @@ jobs:
           args: >-
             --all --locked --verbose --features firmware --target=thumbv7em-none-eabihf
           use-cross: true
-      - name: Upload [debug] artifacts
+      - name: Upload debug artefacts
         uses: actions/upload-artifact@v4
         with:
           name: codios-firmware-debug.bin
