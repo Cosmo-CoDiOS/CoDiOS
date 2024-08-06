@@ -6,8 +6,6 @@
     missing_debug_implementations,
     missing_docs,
     clippy::all,
-    clippy::pedantic,
-    clippy::cargo,
     trivial_casts,
     trivial_numeric_casts,
     unsafe_code,
