@@ -1,11 +1,13 @@
 [toolchain]
-channel = "nightly-2024-04-11"
+channel = "nightly"
 components = [
-            "rust-src",
-            "rustfmt-preview",
             "clippy-preview",
             "llvm-tools-preview",
-            "rust-std"
+            "rust-src",
+            "rust-std",
+            "rustfmt-preview",
+            "rust-analyzer",
+            "rustc"
 ]
 targets = [
     "thumbv7em-none-eabihf",
