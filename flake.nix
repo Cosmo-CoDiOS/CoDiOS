@@ -13,7 +13,7 @@
     };
   };
 
-  outputs = { self, flake-utils, naersk, nixpkgs, nixpkgs-mozilla }:
+  outputs = { self, flake-utils, nixpkgs, nixpkgs-mozilla }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = (import nixpkgs) {
@@ -39,20 +39,15 @@
             "rustfmt-preview"
             "clippy-preview"
             "llvm-tools-preview"
+            "rust-std"
           ];
         };
-
-        naersk' = pkgs.callPackage naersk {
-          cargo = toolchain;
-          rustc = toolchain;
-        };
-
       in
-      rec {
+      {
         # For `nix develop` (optional, can be skipped):
         devShell = pkgs.mkShell {
           nativeBuildInputs = [ toolchain ] ++ (with pkgs; [ pkg-config ]);
-          buildInputs = with pkgs; [ systemd.dev protobuf ];
+          buildInputs = with pkgs; [ systemd.dev protobuf SDL SDL.dev SDL2 SDL2.dev ];
         };
       }
     );
