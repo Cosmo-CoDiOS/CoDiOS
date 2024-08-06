@@ -30,7 +30,7 @@ async fn main(spawner: Spawner) {
         .init();
 
     info!("Starting CoDiOS emulator...");
-    info!("In emulation mode, expect STM32-specific functionality to be missing!");
+    warn!("In emulation mode, expect STM32-specific functionality to be missing!");
 
     spawner.spawn(kmain()).unwrap();
 }
