@@ -221,9 +221,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "4.5.16"
+version = "4.5.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ed6719fffa43d0d87e5fd8caeab59be1554fb028cd30edc88fc4369b17971019"
+checksum = "3e5a21b8495e732f1b3c364c9949b201ca7bae518c502c80256c96ad79eaf6ac"
 dependencies = [
  "clap_builder",
  "clap_derive",
@@ -231,9 +231,9 @@ dependencies = [
 
 [[package]]
 name = "clap_builder"
-version = "4.5.15"
+version = "4.5.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "216aec2b177652e3846684cbfe25c9964d18ec45234f0f5da5157b207ed1aab6"
+checksum = "8cf2dd12af7a047ad9d6da2b6b249759a22a7abc0f474c1dae1777afa4b21a73"
 dependencies = [
  "anstream",
  "anstyle",
@@ -493,7 +493,7 @@ checksum = "60b1af1c220855b6ceac025d3f6ecdd2b7c4894bfe9cd9bda4fbb4bc7c0d4cf0"
 [[package]]
 name = "embassy-embedded-hal"
 version = "0.2.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "defmt",
  "embassy-futures",
@@ -510,7 +510,7 @@ dependencies = [
 [[package]]
 name = "embassy-executor"
 version = "0.6.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "cortex-m",
  "critical-section",
@@ -525,7 +525,7 @@ dependencies = [
 [[package]]
 name = "embassy-executor-macros"
 version = "0.5.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -536,12 +536,12 @@ dependencies = [
 [[package]]
 name = "embassy-futures"
 version = "0.1.1"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 
 [[package]]
 name = "embassy-hal-internal"
 version = "0.2.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "cortex-m",
  "critical-section",
@@ -552,7 +552,7 @@ dependencies = [
 [[package]]
 name = "embassy-net-driver"
 version = "0.2.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "defmt",
 ]
@@ -560,7 +560,7 @@ dependencies = [
 [[package]]
 name = "embassy-stm32"
 version = "0.1.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "aligned",
  "bit_field",
@@ -607,7 +607,7 @@ dependencies = [
 [[package]]
 name = "embassy-sync"
 version = "0.6.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "cfg-if",
  "critical-section",
@@ -621,7 +621,7 @@ dependencies = [
 [[package]]
 name = "embassy-time"
 version = "0.3.2"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "cfg-if",
  "critical-section",
@@ -640,7 +640,7 @@ dependencies = [
 [[package]]
 name = "embassy-time-driver"
 version = "0.1.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "document-features",
 ]
@@ -648,12 +648,12 @@ dependencies = [
 [[package]]
 name = "embassy-time-queue-driver"
 version = "0.1.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 
 [[package]]
 name = "embassy-usb-driver"
 version = "0.1.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "defmt",
 ]
@@ -661,7 +661,7 @@ dependencies = [
 [[package]]
 name = "embassy-usb-synopsys-otg"
 version = "0.1.0"
-source = "git+https://github.com/embassy-rs/embassy#f0a86070512ad739641cee7d9fa39d63f5c8a9f6"
+source = "git+https://github.com/embassy-rs/embassy#0ef06cc19b61c8196fea941514ec313a0f15d145"
 dependencies = [
  "critical-section",
  "embassy-sync",
