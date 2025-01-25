@@ -72,9 +72,9 @@ critical-section = { version = "1.2", features = ["std"] }
 async-io = "2.4.0"
 env_logger = "0.11.6"
 futures = { version = "0.3.30" }
-log = "0.4.22"
+log = "0.4.25"
 nix = "0.29.0"
-clap = { version = "4.5.23", features = ["derive"] }
+clap = { version = "4.5.26", features = ["derive"] }
 rand_core = { version = "0.6.4", features = ["std"] }
 heapless = { version = "0.8.0", default-features = false }
 static_cell = { version = "2.1", features = ["nightly"]}
