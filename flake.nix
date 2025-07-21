@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2024 The Cosmo-CoDiOS Developers
 #
 # SPDX-License-Identifier: GPL-3.0-only
-
 {
   inputs = {
     fenix = {
@@ -16,17 +15,19 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, fenix, flake-utils, naersk, nixpkgs }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
+  outputs = inputs: let
+    inherit (inputs) self flake-utils fenix naersk nixpkgs;
+  in
+    flake-utils.lib.eachDefaultSystem (system: let
         pkgs = (import nixpkgs) {
           inherit system;
         };
 
-        toolchain = with fenix.packages.${system}; fromToolchainFile {
-          dir = ./.;
-          sha256 = "sha256-oW7iyYzGcgW5TjRA2HLhYVW2WNTNadIe4SX7IWsrs3g=";
-        };
+        toolchain = with fenix.packages.${system};
+          fromToolchainFile {
+            dir = ./.;
+            sha256 = "sha256-QmNaeezyZvl+M+EIExXMhW60xi/LupjSwtQ1RFUBCuY=";
+          };
 
         naersk' = naersk.lib.${system}.override {
           cargo = toolchain;
@@ -36,45 +37,41 @@
         naerskBuildPackage = target: args:
           naersk'.buildPackage (
             args
-            // { CARGO_BUILD_TARGET = target; }
+            // {CARGO_BUILD_TARGET = target;}
           );
-      in
-      rec
+      in rec
       {
-        defaultPackage = packages.x86_64-unknown-linux-musl;
-
-        # For `nix build .#x86_64-unknown-linux-musl`:
-        packages.x86_64-unknown-linux-musl = naerskBuildPackage "x86_64-unknown-linux-musl" rec {
-          src = ./.;
-          doCheck = true;
-          nativeBuildInputs = with pkgs; [ pkgsStatic.stdenv.cc cmake SDL SDL2 SDL.dev SDL2.dev ];
-          buildInputs = nativeBuildInputs;
+        packages = {
+          emulator-x86 = naerskBuildPackage "x86_64-unknown-linux-musl" rec {
+            src = ./.;
+            nativeBuildInputs = with pkgs; [pkgsStatic.stdenv.cc cmake];
+            buildInputs = with pkgs; [SDL.dev SDL2.dev];
+          };
+          emulator-arm64 = naerskBuildPackage "aarch64-unknown-linux-musl" rec {
+            src = ./.;
+            nativeBuildInputs = with pkgs; [pkgsStatic.stdenv.cc cmake];
+            buildInputs = with pkgs; [SDL.dev SDL2.dev];
+          };
+          firmware-official-codi = naerskBuildPackage "thumbv7em-none-eabihf" {
+            src = ./.;
+            nativeBuildInputs = with pkgs; [cmake];
+          };
         };
 
-        # For `nix build .#x86_64-unknown-linux-musl`:
-        packages.aarch64-unknown-linux-musl = naerskBuildPackage "aarch64-unknown-linux-musl" rec {
-          src = ./.;
-          doCheck = true;
-          nativeBuildInputs = with pkgs; [ pkgsStatic.stdenv.cc cmake SDL SDL2 SDL.dev SDL2.dev ];
-          buildInputs = nativeBuildInputs;
-        };
-
-        # For `nix build .#x86_64-unknown-linux-musl`:
-        packages.thumbv7em-none-eabihf = naerskBuildPackage "thumbv7em-none-eabihf" {
-          src = ./.;
-          doCheck = true;
-          nativeBuildInputs = with pkgs; [ cmake ];
-        };
-
-        devShell = pkgs.mkShellNoCC (
+        devShell =
+          pkgs.mkShell
           {
-            inputsFrom = [ packages.x86_64-unknown-linux-musl packages.aarch64-unknown-linux-musl ];
+            inputsFrom = with self.packages.${system}; [
+              emulator-x86
+              emulator-arm64
+              firmware-official-codi
+            ];
             packages = with pkgs; [
               rustup
               cargo-cross
             ];
             CROSS_CONTAINER_OPTS = "--platform linux/amd64";
             CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
-          });
+          };
       });
 }
