@@ -66,7 +66,7 @@ embassy-executor = { version = "0.6.0", git = "https://github.com/embassy-rs/emb
 embassy-time = { version = "0.3.0", git = "https://github.com/embassy-rs/embassy", features = ["log", "std"] }
 
 embedded-io-async = { version = "0.6.1" }
-embedded-io-adapters = { version = "0.6.1", features = ["futures-03"] }
+embedded-io-adapters = { version = "0.6.2", features = ["futures-03"] }
 critical-section = { version = "1.2", features = ["std"] }
 
 async-io = "2.5.0"
@@ -74,7 +74,7 @@ env_logger = "0.11.6"
 futures = { version = "0.3.30" }
 log = "0.4.27"
 nix = "0.30.1"
-clap = { version = "4.5.41", features = ["derive"] }
+clap = { version = "4.5.43", features = ["derive"] }
 rand_core = { version = "0.9.3", features = ["std"] }
 heapless = { version = "0.8.0", default-features = false }
 static_cell = { version = "2.1", features = ["nightly"]}
