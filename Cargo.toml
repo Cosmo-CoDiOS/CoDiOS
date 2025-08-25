@@ -52,7 +52,7 @@ embedded-hal = "^1.0"
 embedded-hal-async = { version = "^1.0" }
 panic-probe = { version = "1.0", features = ["print-defmt"] }
 futures = { version = "0.3.31", default-features = false, features = ["async-await"] }
-heapless = { version = "0.8.0", default-features = false }
+heapless = { version = "0.9.1", default-features = false }
 chrono = { version = "^0.4", default-features = false }
 
 micromath = "2.1.0"
@@ -74,9 +74,9 @@ env_logger = "0.11.6"
 futures = { version = "0.3.30" }
 log = "0.4.27"
 nix = "0.30.1"
-clap = { version = "4.5.43", features = ["derive"] }
+clap = { version = "4.5.45", features = ["derive"] }
 rand_core = { version = "0.9.3", features = ["std"] }
-heapless = { version = "0.8.0", default-features = false }
+heapless = { version = "0.9.1", default-features = false }
 static_cell = { version = "2.1", features = ["nightly"]}
 
 sdl2 = { version = "0.35.2", features = ["static-link", "use-pkgconfig"] }
