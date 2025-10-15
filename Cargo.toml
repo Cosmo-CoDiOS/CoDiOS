@@ -44,7 +44,7 @@ embassy-time = { version = "0.3.0", git = "https://github.com/embassy-rs/embassy
 embassy-embedded-hal = { version = "0.2.0", git = "https://github.com/embassy-rs/embassy" }
 
 defmt = "1.0"
-defmt-rtt = "1.0"
+defmt-rtt = "1.1"
 
 cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7.5"
