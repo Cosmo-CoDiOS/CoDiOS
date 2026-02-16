@@ -35,7 +35,7 @@ emulator = ["embedded-graphics-simulator/with-sdl"]
 # codi_protocol_common = { git = "https://github.com/Cosmo-CoDiOS/codi_protocols", branch = "main" }
 
 [target.'thumbv7em-none-eabihf'.dependencies]
-embedded-graphics = "0.8.1"
+embedded-graphics = "0.8.2"
 
 embassy-stm32 = { version = "0.1.0", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono"]  }
 embassy-sync = { version = "0.6.0", git = "https://github.com/embassy-rs/embassy", features = ["defmt"] }
@@ -51,14 +51,14 @@ cortex-m-rt = "0.7.5"
 embedded-hal = "^1.0"
 embedded-hal-async = { version = "^1.0" }
 panic-probe = { version = "1.0", features = ["print-defmt"] }
-futures = { version = "0.3.31", default-features = false, features = ["async-await"] }
+futures = { version = "0.3.32", default-features = false, features = ["async-await"] }
 heapless = { version = "0.9.2", default-features = false }
 chrono = { version = "^0.4", default-features = false }
 
 micromath = "2.1.0"
 
 [target.'cfg(any(target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
-embedded-graphics = "0.8.1"
+embedded-graphics = "0.8.2"
 embedded-graphics-simulator = { version = "0.6.0", default-features = false }
 
 embassy-sync = { version = "0.6.0", git = "https://github.com/embassy-rs/embassy", features = ["log"] }
@@ -71,10 +71,10 @@ critical-section = { version = "1.2", features = ["std"] }
 
 async-io = "2.6.0"
 env_logger = "0.11.6"
-futures = { version = "0.3.30" }
+futures = { version = "0.3.32" }
 log = "0.4.29"
 nix = "0.31.1"
-clap = { version = "4.5.57", features = ["derive"] }
+clap = { version = "4.5.58", features = ["derive"] }
 rand_core = { version = "0.9.5", features = ["std"] }
 heapless = { version = "0.9.2", default-features = false }
 static_cell = { version = "2.1", features = ["nightly"]}
