@@ -37,11 +37,11 @@ emulator = ["embedded-graphics-simulator/with-sdl"]
 [target.'thumbv7em-none-eabihf'.dependencies]
 embedded-graphics = "0.8.2"
 
-embassy-stm32 = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono"]  }
-embassy-sync = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["defmt"] }
-embassy-executor = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["nightly", "executor-thread", "defmt"] }
-embassy-time = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
-embassy-embedded-hal = { version = "*", git = "https://github.com/embassy-rs/embassy" }
+embassy-stm32 = { version = "0.6.0", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono"]  }
+embassy-sync = { version = "0.8.0", features = ["defmt"] }
+embassy-executor = { version = "0.9.1", features = ["nightly", "executor-thread", "defmt", "arch-cortex-m"] }
+embassy-time = { version = "0.5.1", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
+embassy-embedded-hal = { version = "0.6.0" }
 
 defmt = "1.0"
 defmt-rtt = "1.1"
@@ -61,12 +61,12 @@ micromath = "2.1.0"
 embedded-graphics = "0.8.2"
 embedded-graphics-simulator = { version = "0.8.0", default-features = false }
 
-embassy-sync = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["log"] }
-embassy-executor = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["executor-thread", "log", "nightly"] }
-embassy-time = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["log", "std"] }
+embassy-sync = { version = "0.8.0", features = ["log"] }
+embassy-executor = { version = "0.9.1", features = ["executor-thread", "log", "nightly", "arch-std"] }
+embassy-time = { version = "0.5.1", features = ["log", "std"] }
 
-embedded-io-async = { version = "*" }
-embedded-io-adapters = { version = "*", features = ["futures-03"] }
+embedded-io-async = { version = "0.7.0" }
+embedded-io-adapters = { version = "0.7.0", features = ["futures-03"] }
 critical-section = { version = "1.2", features = ["std"] }
 
 async-io = "2.6.0"
@@ -75,7 +75,7 @@ futures = { version = "0.3.32" }
 log = "0.4.29"
 nix = "0.31.2"
 clap = { version = "4.6.1", features = ["derive"] }
-rand_core = { version = "0.10.1", features = ["std"] }
+rand_core = { version = "0.10.1" }
 heapless = { version = "0.9.3", default-features = false }
 static_cell = { version = "2.1", features = ["nightly"]}
 
