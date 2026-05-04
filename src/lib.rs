@@ -1,7 +1,7 @@
 //! Base crate.
 #![cfg_attr(
     any(target_arch = "arm", feature = "firmware"),
-    feature(alloc_error_handler), allow(unstable_features), no_std
+    allow(unstable_features), no_std
 )]
 #![feature(impl_trait_in_assoc_type)]
 #![deny(
