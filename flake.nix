@@ -26,7 +26,7 @@
         toolchain = with fenix.packages.${system};
           fromToolchainFile {
             dir = ./.;
-            sha256 = "sha256-QmNaeezyZvl+M+EIExXMhW60xi/LupjSwtQ1RFUBCuY=";
+            sha256 = "sha256-EVLjTvADShB7Bi+FQtVgovhrVWx7ptxqkj30uqss+wI=";
           };
 
         naersk' = naersk.lib.${system}.override {

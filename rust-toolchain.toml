@@ -1,11 +1,11 @@
 [toolchain]
 channel = "nightly"
 components = [
-            "clippy-preview",
-            "llvm-tools-preview",
+            "clippy",
+            "llvm-tools",
             "rust-src",
             "rust-std",
-            "rustfmt-preview",
+            "rustfmt",
             "rust-analyzer",
             "rustc"
 ]
