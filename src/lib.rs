@@ -48,7 +48,4 @@ use {defmt_rtt as _, panic_probe as _};
 #[embassy_executor::task]
 pub async fn kmain() {
     info!("Looping NOW. (kmain)");
-    loop {
-        emulator::emulator_main().await.unwrap();
-    }
 }
