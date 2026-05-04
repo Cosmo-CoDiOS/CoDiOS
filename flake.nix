@@ -44,13 +44,17 @@
         packages = {
           emulator-x86 = naerskBuildPackage "x86_64-unknown-linux-musl" rec {
             src = ./.;
-            nativeBuildInputs = with pkgs; [pkgsStatic.stdenv.cc cmake];
-            buildInputs = with pkgs; [SDL.dev SDL2.dev];
+            nativeBuildInputs = with pkgs; [stdenv.cc cmake pkg-config];
+            buildInputs = with pkgs; [
+                (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
+            ];
           };
           emulator-arm64 = naerskBuildPackage "aarch64-unknown-linux-musl" rec {
             src = ./.;
-            nativeBuildInputs = with pkgs; [pkgsStatic.stdenv.cc cmake];
-            buildInputs = with pkgs; [SDL.dev SDL2.dev];
+            nativeBuildInputs = with pkgs; [stdenv.cc cmake pkg-config];
+            buildInputs = with pkgs; [
+                (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
+            ];
           };
           firmware-official-codi = naerskBuildPackage "thumbv7em-none-eabihf" {
             src = ./.;
@@ -69,6 +73,7 @@
             packages = with pkgs; [
               rustup
               cargo-cross
+              (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
             ];
             CROSS_CONTAINER_OPTS = "--platform linux/amd64";
             CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
