@@ -37,11 +37,11 @@ emulator = ["embedded-graphics-simulator/with-sdl"]
 [target.'thumbv7em-none-eabihf'.dependencies]
 embedded-graphics = "0.8.2"
 
-embassy-stm32 = { version = "0.1.0", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono"]  }
-embassy-sync = { version = "0.6.0", git = "https://github.com/embassy-rs/embassy", features = ["defmt"] }
-embassy-executor = { version = "0.6.0", git = "https://github.com/embassy-rs/embassy", features = ["nightly", "arch-cortex-m", "executor-thread", "defmt", "integrated-timers"] }
-embassy-time = { version = "0.3.0", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
-embassy-embedded-hal = { version = "0.2.0", git = "https://github.com/embassy-rs/embassy" }
+embassy-stm32 = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono"]  }
+embassy-sync = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["defmt"] }
+embassy-executor = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["nightly", "arch-cortex-m", "executor-thread", "defmt", "integrated-timers"] }
+embassy-time = { version = "*", git = "https://github.com/embassy-rs/embassy", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
+embassy-embedded-hal = { version = "*", git = "https://github.com/embassy-rs/embassy" }
 
 defmt = "1.0"
 defmt-rtt = "1.1"
