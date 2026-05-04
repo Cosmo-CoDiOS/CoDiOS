@@ -37,7 +37,7 @@ emulator = ["embedded-graphics-simulator/with-sdl"]
 [target.'thumbv7em-none-eabihf'.dependencies]
 embedded-graphics = "0.8.2"
 
-embassy-stm32 = { version = "0.6.0", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono"]  }
+embassy-stm32 = { version = "0.6.0", features = ["defmt", "unstable-pac", "stm32l4r9ai", "memory-x", "time-driver-any", "exti", "chrono", "single-bank"]  }
 embassy-sync = { version = "0.8.0", features = ["defmt"] }
 embassy-executor = { version = "0.9.1", features = ["nightly", "executor-thread", "defmt", "arch-cortex-m"] }
 embassy-time = { version = "0.5.1", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"] }
