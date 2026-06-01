@@ -72,7 +72,7 @@ critical-section = { version = "1.2", features = ["std"] }
 async-io = "2.6.0"
 env_logger = "0.11.10"
 futures = { version = "0.3.32" }
-log = "0.4.29"
+log = "0.4.30"
 nix = "0.31.3"
 clap = { version = "4.6.1", features = ["derive"] }
 rand_core = { version = "0.10.1" }
