@@ -61,6 +61,7 @@
           firmware-official-codi = naerskBuildPackage "thumbv7em-none-eabihf" {
             src = ./.;
             nativeBuildInputs = with pkgs; [cmake];
+            cargoBuildOptions = x: x ++ ["--features" "firmware"];
           };
         };
 
