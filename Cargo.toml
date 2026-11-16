@@ -73,7 +73,7 @@ async-io = "2.6.0"
 env_logger = "0.11.11"
 futures = { version = "0.3.34" }
 log = "0.4.35"
-nix = "0.31.3"
+nix = "0.32.0"
 clap = { version = "4.6.7", features = ["derive"] }
 rand_core = { version = "0.10.1" }
 heapless = { version = "0.9.3", default-features = false }
