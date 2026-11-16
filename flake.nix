@@ -42,20 +42,23 @@
       in rec
       {
         packages = {
+          # NOTE: nixpkgs' SDL2 is marked unsupported for static linking
+          # (badPlatforms = isStatic), so these link dynamically against a
+          # musl-cross-built SDL2. That cross build has no cache.nixos.org
+          # hits and compiles a large chunk of nixpkgs from source the
+          # first time - expect this to take a long time (30+ minutes).
           emulator-x86 = naerskBuildPackage "x86_64-unknown-linux-musl" rec {
             src = ./.;
             nativeBuildInputs = with pkgs; [stdenv.cc cmake pkg-config];
-            buildInputs = with pkgs; [
-                (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
-            ];
+            buildInputs = [pkgs.pkgsCross.musl64.SDL2];
+            PKG_CONFIG_PATH = "${pkgs.pkgsCross.musl64.SDL2}/lib/pkgconfig";
             cargoBuildOptions = x: x ++ ["--features" "emulator"];
           };
           emulator-arm64 = naerskBuildPackage "aarch64-unknown-linux-musl" rec {
             src = ./.;
             nativeBuildInputs = with pkgs; [stdenv.cc cmake pkg-config];
-            buildInputs = with pkgs; [
-                (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
-            ];
+            buildInputs = [pkgs.pkgsCross.aarch64-multiplatform-musl.SDL2];
+            PKG_CONFIG_PATH = "${pkgs.pkgsCross.aarch64-multiplatform-musl.SDL2}/lib/pkgconfig";
             cargoBuildOptions = x: x ++ ["--features" "emulator"];
           };
           firmware-official-codi = naerskBuildPackage "thumbv7em-none-eabihf" {
@@ -76,8 +79,8 @@
             packages = with pkgs; [
               rustup
               cargo-cross
-              (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
             ];
+            PKG_CONFIG_PATH = "${pkgs.pkgsCross.musl64.SDL2}/lib/pkgconfig";
             CROSS_CONTAINER_OPTS = "--platform linux/amd64";
             CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
           };
