@@ -18,6 +18,10 @@
     unused_extern_crates,
     variant_size_differences
 )]
+// Transitive deps (e.g. embassy-time pulling embedded-hal 0.2.7 alongside our
+// 1.0 dependency) legitimately disagree on major versions; this can't be
+// unified via cargo update, so don't deny it as part of clippy::cargo.
+#![allow(clippy::multiple_crate_versions)]
 
 #[cfg(not(any(feature = "firmware", feature = "emulator")))]
 compile_error!("No flag specified which tells us to build the emulator or firmware! Unable to continue.");
