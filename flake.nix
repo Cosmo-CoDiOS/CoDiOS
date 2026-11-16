@@ -48,6 +48,7 @@
             buildInputs = with pkgs; [
                 (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
             ];
+            cargoBuildOptions = x: x ++ ["--features" "emulator"];
           };
           emulator-arm64 = naerskBuildPackage "aarch64-unknown-linux-musl" rec {
             src = ./.;
@@ -55,6 +56,7 @@
             buildInputs = with pkgs; [
                 (SDL2.overrideAttrs (old: { dontDisableStatic = true; }))
             ];
+            cargoBuildOptions = x: x ++ ["--features" "emulator"];
           };
           firmware-official-codi = naerskBuildPackage "thumbv7em-none-eabihf" {
             src = ./.;
