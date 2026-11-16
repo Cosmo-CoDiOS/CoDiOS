@@ -28,5 +28,5 @@ use codios::kmain;
 #[cfg_attr(all(target_arch = "arm", feature = "firmware", not(feature = "emulator")), embassy_executor::main)]
 async fn main(spawner: Spawner) {
     info!("CPU up, starting CoDiOS firmware");
-    spawner.spawn(kmain()).unwrap();
+    spawner.spawn(kmain().unwrap());
 }
